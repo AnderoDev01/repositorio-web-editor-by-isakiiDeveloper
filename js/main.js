@@ -1,13 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Service Worker Registration
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('js/sw.js')
-            .then(registration => {
-                console.log('Service Worker registrado com sucesso:', registration);
-            })
-            .catch(error => {
-                console.error('Falha ao registrar Service Worker:', error);
+        navigator.serviceWorker.register('/js/sw.js', {
+            scope: '/'
+        })
+        .then(registration => {
+            console.log('Service Worker registrado com sucesso:', registration);
+            // Verifica se há uma nova versão disponível
+            registration.addEventListener('updatefound', () => {
+                const newWorker = registration.installing;
+                newWorker.addEventListener('statechange', () => {
+                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                        // Nova versão disponível
+                        if (confirm('Nova versão da Wiki disponível! Deseja atualizar agora?')) {
+                            window.location.reload();
+                        }
+                    }
+                });
             });
+        })
+        .catch(error => {
+            console.error('Falha ao registrar Service Worker:', error);
+        });
     }
 
     // Sidebar category toggle

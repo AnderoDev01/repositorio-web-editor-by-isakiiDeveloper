@@ -17,5 +17,52 @@
             "sizes": "512x512",
             "type": "image/png"
         }
-    ]
+    ],
+    "scope": "/",
+    "orientation": "any",
+    "categories": ["education", "development", "games"],
+    "lang": "pt-BR",
+    "shortcuts": [
+        {
+            "name": "Página Inicial",
+            "url": "/index.html",
+            "description": "Ir para a página inicial da Wiki"
+        },
+        {
+            "name": "Introdução",
+            "url": "/pages/introduction.html",
+            "description": "Introdução ao CCode"
+        },
+        {
+            "name": "Primeiros Passos",
+            "url": "/pages/getting-started.html",
+            "description": "Comece aqui sua jornada com o CCode"
+        }
+    ],
+    "cache": {
+        "paths": [
+            "/",
+            "/index.html",
+            "/css/style.css",
+            "/js/main.js",
+            "/js/sw.js",
+            "/images/logo.png",
+            "/icons/icon-192x192.png",
+            "/icons/icon-512x512.png",
+            "/pages/getting-started.html",
+            "/pages/introduction.html",
+            "/pages/modes.html",
+            "/pages/blocks/control.html",
+            "/pages/blocks/data-text.html",
+            "/pages/blocks/editor-expressions.html",
+            "/pages/blocks/events.html",
+            "/pages/blocks/media.html",
+            "/pages/blocks/objects-filters.html",
+            "/pages/blocks/physics.html",
+            "/pages/blocks/shapes.html",
+            "/pages/blocks/transitions.html",
+            "/pages/block-examples/example-block.html"
+        ],
+        "strategy": "network-first"
+    }
 }
