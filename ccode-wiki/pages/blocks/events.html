@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocos de Eventos - CCode Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="manifest" href="../../manifest.json">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../../index.html"><img src="../../images/logo.png" alt="CCode Logo" id="logo"></a>
+            <h1><a href="../../index.html" style="color:white; text-decoration:none;">CCode Wiki</a></h1>
+            <nav id="top-nav">
+                <a href="../../index.html">Home</a>
+                <a href="../introduction.html">Introdução</a>
+                <a href="../modes.html">Modos de Uso</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-container">
+        <aside id="sidebar">
+            <h2>Navegação</h2>
+            <input type="text" id="search-bar" placeholder="Buscar na Wiki...">
+            <ul>
+                <li><a href="../../index.html">Página Inicial</a></li>
+                <li><a href="../introduction.html">Introdução ao CCode</a></li>
+                <li><a href="../modes.html">Modo Normal vs. Simplificado</a></li>
+                <li>
+                    <span class="category-toggle">Categorias de Blocos</span>
+                    <ul class="submenu open"> <!-- Mantém aberto nesta página -->
+                        <li><a href="events.html" class="active">Eventos</a></li>
+                        <li><a href="data-text.html">Dados & Texto</a></li>
+                        <li><a href="objects-filters.html">Objetos & Filtros / Imagens</a></li>
+                        <li><a href="control.html">Controle</a></li>
+                        <li><a href="shapes.html">Formas</a></li>
+                        <li><a href="physics.html">Física</a></li>
+                        <li><a href="media.html">Mídia</a></li>
+                        <li><a href="transitions.html">Transições</a></li>
+                        <li><a href="editor-expressions.html">Editor de Expressões</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <main id="main-content">
+            <section>
+                <h2>Blocos de Eventos</h2>
+                <p>Eventos são o coração da interatividade em seus projetos CCode. Eles são gatilhos que respondem a ações do usuário (como toques), eventos do sistema (como o início do jogo) ou interações entre objetos (como colisões). Quando um evento ocorre, os blocos conectados a ele são executados.</p>
+
+                <div class="block-description">
+                    <h4>Ao Iniciar (<code>onStart</code>)</h4>
+                    <p><strong>O que faz:</strong> Executa os blocos conectados a ele uma única vez, assim que o programa ou jogo é iniciado.</p>
+                    <p><strong>Modo Normal e Simplificado:</strong> Funciona da mesma forma em ambos os modos.</p>
+                    <p><strong>Parâmetros Principais:</strong></p>
+                    <ul>
+                        <li><code>Nota:</code> (Opcional) Um campo para adicionar um comentário ou descrição para este evento. Não afeta a funcionalidade.</li>
+                    </ul>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Configurar variáveis iniciais (ex: <code>pontuacao = 0</code>, <code>vidas = 3</code>).</li>
+                        <li>Criar objetos que devem estar presentes desde o começo (ex: personagem principal, cenário de fundo).</li>
+                        <li>Tocar uma música de introdução ou de fundo para o nível.</li>
+                        <li>Definir a gravidade do mundo ou outras configurações iniciais de física.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Fundamental. Todo projeto precisa de um ponto de partida para inicializar seus elementos, variáveis e estados antes que qualquer outra interação ocorra.</p>
+                    <p><strong>Código Exemplo (Conceitual):</strong></p>
+                    <pre><code>
+EVENTO: Ao Iniciar
+    DEFINIR VALOR DA VARIÁVEL: "pontuacao" PARA: 0
+    CRIAR OBJETO: "jogador" COM SPRITE: "sprite_jogador.png" EM X: 100, Y: 200
+    TOCAR SOM: "musica_fundo.mp3" REPETIR: INFINITO
+                    </code></pre>
+                </div>
+
+                <div class="block-description">
+                    <h4>Dedo Toca o Objeto (<code>onTouchBegan2</code> / <code>onTouchBeganNoob</code>)</h4>
+                    <p><strong>O que faz:</strong> Dispara a execução dos blocos aninhados quando um dedo do usuário inicia um toque sobre um objeto/imagem específico na tela.</p>
+                    <p><strong>Modo Normal:</strong> <code>onTouchBegan2</code></p>
+                    <p><strong>Modo Simplificado:</strong> <code>onTouchBeganNoob</code> (geralmente se refere a "Imagem")</p>
+                    <p><strong>Parâmetros Principais (Normal):</strong></p>
+                    <ul>
+                        <li><code>Nome do objeto</code>: O nome do objeto que, ao ser tocado, disparará o evento.</li>
+                        <li><code>Nome da tabela</code>: Uma variável do tipo tabela que será preenchida com informações sobre o toque (ex: <code>id</code> do toque para multitouch, <code>x</code> e <code>y</code> da posição do toque na tela e em relação ao objeto).</li>
+                    </ul>
+                    <p><strong>Parâmetros Principais (Simplificado):</strong></p>
+                    <ul>
+                        <li><code>Nome da imagem</code>: O nome da imagem que, ao ser tocada, disparará o evento. (Informações detalhadas do toque podem ser acessadas por meio de funções no editor de expressões, como <code>dedo_tocando_tela_x()</code>).</li>
+                    </ul>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Fazer um botão virtual funcionar: Ao tocar no botão "Pular", executar a ação de pulo do personagem.</li>
+                        <li>Permitir que o jogador selecione um item ou personagem clicando nele.</li>
+                        <li>Disparar um som ou efeito visual quando um objeto específico é tocado.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Essencial para criar interfaces de usuário interativas e mecânicas de jogo que respondem ao toque direto em elementos específicos.</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Dedo Solta o Objeto (<code>onTouchEnded2</code> / <code>onTouchEndedNoob</code>)</h4>
+                    <p><strong>O que faz:</strong> Dispara quando o dedo do usuário é levantado (solto) de um objeto/imagem específico que estava sendo tocado.</p>
+                    <p><strong>Modo Normal:</strong> <code>onTouchEnded2</code></p>
+                    <p><strong>Modo Simplificado:</strong> <code>onTouchEndedNoob</code></p>
+                    <p><strong>Parâmetros Principais:</strong> Similares ao <code>Dedo Toca o Objeto</code> (Nome do objeto/imagem, Nome da tabela no modo normal).</p>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Finalizar uma ação que começou com <code>Dedo Toca o Objeto</code>, como soltar um item que estava sendo arrastado.</li>
+                        <li>Mudar a aparência de um botão de volta ao normal após ser pressionado e solto.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Útil para interações que têm um estado de "pressionado" e "solto".</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Enquanto Dedo se Move Sobre o Objeto (<code>onTouchMoved2</code> / <code>onTouchMovedNoob</code>)</h4>
+                    <p><strong>O que faz:</strong> Dispara continuamente enquanto o dedo do usuário, após ter tocado um objeto/imagem, se move sobre ele sem ser levantado.</p>
+                    <p><strong>Modo Normal:</strong> <code>onTouchMoved2</code></p>
+                    <p><strong>Modo Simplificado:</strong> <code>onTouchMovedNoob</code></p>
+                    <p><strong>Parâmetros Principais:</strong> Similares ao <code>Dedo Toca o Objeto</code>.</p>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Implementar a funcionalidade de arrastar e soltar (drag-and-drop) para um objeto.</li>
+                        <li>Criar um joystick virtual onde a posição do objeto do joystick segue o dedo.</li>
+                        <li>Desenhar na tela seguindo o movimento do dedo sobre uma área de desenho.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Fundamental para mecânicas de arrastar, joysticks virtuais e interações contínuas baseadas no movimento do dedo.</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Dedo Toca a Tela (<code>onTouchDisplayBegan</code> / <code>onTouchDisplayBeganNoob</code>)</h4>
+                    <p><strong>O que faz:</strong> Dispara quando qualquer parte da tela é tocada, não necessariamente um objeto específico.</p>
+                    <p><strong>Modo Normal:</strong> <code>onTouchDisplayBegan</code></p>
+                    <p><strong>Modo Simplificado:</strong> <code>onTouchDisplayBeganNoob</code></p>
+                    <p><strong>Parâmetros Principais (Normal):</strong></p>
+                    <ul>
+                        <li><code>Nome da tabela</code>: Tabela que recebe dados do toque (ID, posição X, Y na tela).</li>
+                    </ul>
+                    <p><strong>Parâmetros Principais (Simplificado):</strong> Nenhum parâmetro direto, mas a posição do toque pode ser obtida por funções no editor de expressões.</p>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Fazer o personagem pular com um toque em qualquer lugar da tela (exceto em botões específicos).</li>
+                        <li>Pausar o jogo ao tocar na tela.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Para controles gerais que não dependem de tocar em um objeto específico.</p>
+                    <p><strong>Nota:</strong> Existem equivalentes como <code>Dedo Solta a Tela</code> (<code>onTouchDisplayEnded</code>) e <code>Enquanto Dedo se Move na Tela</code> (<code>onTouchDisplayMoved</code>).</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Início da Colisão Local (<code>onLocalCollisionBegan</code>) / Quando Imagens Colidirem (<code>onLocalCollisionBeganNoob</code>)</h4>
+                    <p><strong>O que faz:</strong> Dispara quando dois objetos/imagens físicos específicos começam a se tocar (colidir).</p>
+                    <p><strong>Modo Normal:</strong> <code>onLocalCollisionBegan</code></p>
+                    <p><strong>Modo Simplificado:</strong> <code>onLocalCollisionBeganNoob</code></p>
+                    <p><strong>Parâmetros Principais (Normal):</strong></p>
+                    <ul>
+                        <li><code>Nome da função</code>: Uma função que será chamada quando a colisão ocorrer.</li>
+                        <li><code>Nome da tabela</code>: Uma tabela que receberá informações detalhadas sobre a colisão (quais objetos colidiram, ponto de contato, normal da colisão, etc.). Os objetos envolvidos são geralmente definidos em outro local, como ao adicionar ouvintes de colisão a objetos específicos.</li>
+                    </ul>
+                    <p><strong>Parâmetros Principais (Simplificado):</strong></p>
+                    <ul>
+                        <li><code>Nome da imagem1</code>: O nome da primeira imagem envolvida na colisão.</li>
+                        <li><code>Nome da imagem2</code>: O nome da segunda imagem envolvida na colisão.</li>
+                    </ul>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Detectar se o personagem do jogador colidiu com um inimigo (para perder vida).</li>
+                        <li>Verificar se o jogador coletou uma moeda ou item.</li>
+                        <li>Fazer um som de "batida" quando duas bolas colidem.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Crucial para a maioria das lógicas de jogo que envolvem interação física entre elementos.</p>
+                    <p><strong>Nota:</strong> Existem eventos para <code>Fim da Colisão Local</code> (<code>onLocalCollisionEnded</code>) e, no Modo Normal, eventos mais granulares como <code>Antes da Colisão Local</code> (<code>onLocalPreCollision</code>) e <code>Depois da Colisão Local</code> (<code>onLocalPostCollision</code>).</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Criar Função (<code>onFun</code>) / Criar Ação (<code>onFunNoob</code>)</h4>
+                    <p><strong>O que faz:</strong> Permite agrupar uma sequência de blocos sob um nome único (função ou ação). Este grupo de blocos pode então ser executado (chamado) de outros lugares do seu código usando o bloco <code>Chamar Função</code> / <code>Executar Ação</code>.</p>
+                    <p><strong>Modo Normal:</strong> <code>onFun</code> (pode ter <code>onFunParams</code> para funções que aceitam parâmetros)</p>
+                    <p><strong>Modo Simplificado:</strong> <code>onFunNoob</code></p>
+                    <p><strong>Parâmetros Principais:</strong></p>
+                    <ul>
+                        <li><code>Nome da função</code> / <code>Ação</code>: O nome que você dará a este conjunto de blocos.</li>
+                        <li>(Modo Normal - <code>onFunParams</code>) <code>Nome da tabela</code>: Se a função aceitar parâmetros, este é o nome da tabela que os conterá dentro da função.</li>
+                    </ul>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Criar uma ação "PularPersonagem" que contém toda a lógica de pulo (aplicar velocidade, tocar som de pulo).</li>
+                        <li>Criar uma função "ReiniciarNivel" que redefine posições, pontuação e outros estados.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Fundamental para organizar o código, evitar repetição (DRY - Don't Repeat Yourself) e tornar a lógica principal mais legível e modular.</p>
+                </div>
+                <!-- Adicionar mais blocos de Eventos -->
+            </section>
+        </main>
+    </div>
+     <footer>
+        <div class="container">
+            <p>© 2023 CCode FanWiki. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="../../js/main.js"></script>
+</body>
+</html>

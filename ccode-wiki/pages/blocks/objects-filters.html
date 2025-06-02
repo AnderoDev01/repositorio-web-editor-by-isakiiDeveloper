@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocos de Objetos & Filtros / Imagens - CCode Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="manifest" href="../../manifest.json">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../../index.html"><img src="../../images/logo.png" alt="CCode Logo" id="logo"></a>
+            <h1><a href="../../index.html" style="color:white; text-decoration:none;">CCode Wiki</a></h1>
+            <nav id="top-nav">
+                <a href="../../index.html">Home</a>
+                <a href="../introduction.html">Introdução</a>
+                <a href="../modes.html">Modos de Uso</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-container">
+        <aside id="sidebar">
+            <h2>Navegação</h2>
+            <input type="text" id="search-bar" placeholder="Buscar na Wiki...">
+            <ul>
+                <li><a href="../../index.html">Página Inicial</a></li>
+                <li><a href="../introduction.html">Introdução ao CCode</a></li>
+                <li><a href="../modes.html">Modo Normal vs. Simplificado</a></li>
+                <li>
+                    <span class="category-toggle">Categorias de Blocos</span>
+                    <ul class="submenu open">
+                        <li><a href="events.html">Eventos</a></li>
+                        <li><a href="data-text.html">Dados & Texto</a></li>
+                        <li><a href="objects-filters.html">Objetos & Filtros / Imagens</a></li>
+                        <li><a href="control.html">Controle</a></li>
+                        <li><a href="shapes.html">Formas</a></li>
+                        <li><a href="physics.html">Física</a></li>
+                        <li><a href="media.html">Mídia</a></li>
+                        <li><a href="transitions.html">Transições</a></li>
+                        <li><a href="editor-expressions.html">Editor de Expressões</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <main id="main-content">
+            <section>
+                <h2>Blocos de Objetos & Filtros (Modo Normal) / Imagens (Modo Simplificado)</h2>
+                <p>Esta categoria lida com a criação, manipulação e aparência dos elementos visuais do seu jogo. No Modo Normal, são chamados de "Objetos" e podem ter "Filtros" (efeitos visuais). No Modo Simplificado, são geralmente referidos como "Imagens".</p>
+
+                <div class="block-description">
+                    <h4>Criar Objeto (<code>newObject</code>) / Criar Imagem (<code>newObjectNoob</code>)</h4>
+                    <p><strong>O que faz:</strong> Adiciona um novo elemento visual (sprite ou imagem) à tela do jogo.</p>
+                    <p><strong>Modo Normal:</strong> <code>newObject</code></p>
+                    <p><strong>Modo Simplificado:</strong> <code>newObjectNoob</code></p>
+                    <p><strong>Parâmetros Principais (Normal):</strong></p>
+                    <ul>
+                        <li><code>Nome do objeto</code>: Um nome único para identificar este objeto.</li>
+                        <li><code>Nome do sprite</code>: O nome do arquivo de imagem (ex: "personagem.png") que está nos recursos do projeto.</li>
+                        <li><code>Posição (X)</code>: Coordenada X inicial.</li>
+                        <li><code>Posição (Y)</code>: Coordenada Y inicial.</li>
+                    </ul>
+                    <p><strong>Parâmetros Principais (Simplificado):</strong></p>
+                    <ul>
+                        <li><code>Nome da imagem</code>: Um nome único para identificar esta imagem. O arquivo de imagem associado geralmente é o mesmo que o "Nome da Imagem" na lista de recursos.</li>
+                        <li><code>Posição (X)</code>: Coordenada X inicial.</li>
+                        <li><code>Posição (Y)</code>: Coordenada Y inicial.</li>
+                    </ul>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Criar o personagem principal do jogador.</li>
+                        <li>Adicionar inimigos, moedas, plataformas, elementos de cenário.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Base para qualquer elemento gráfico que aparece no jogo.</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Definir Posição do Objeto/Imagem (<code>setPos</code> / <code>setPosNoob</code>)</h4>
+                    <p><strong>O que faz:</strong> Move um objeto ou imagem para coordenadas X e Y específicas na tela de forma instantânea.</p>
+                    <p><strong>Modo Normal:</strong> <code>setPos</code></p>
+                    <p><strong>Modo Simplificado:</strong> <code>setPosNoob</code></p>
+                    <p><strong>Parâmetros Principais:</strong></p>
+                    <ul>
+                        <li><code>Nome do objeto</code> / <code>Nome da imagem</code>: O identificador do elemento a ser movido.</li>
+                        <li><code>Posição (X)</code>: A nova coordenada X.</li>
+                        <li><code>Posição (Y)</code>: A nova coordenada Y.</li>
+                    </ul>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Posicionar o jogador no ponto de início de uma fase.</li>
+                        <li>Mover um inimigo para uma nova localização após um padrão de movimento.</li>
+                        <li>Reposicionar um item após ser coletado e reaparecer.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Fundamental para controlar onde os elementos visuais estão localizados na tela.</p>
+                    <p><strong>Nota:</strong> Existem blocos específicos como <code>Definir Posição X</code> (<code>setPosX</code>) e <code>Definir Posição Y</code> (<code>setPosY</code>) para controlar cada eixo individualmente, e blocos como <code>Alterar Posição X</code> (<code>updPosX</code>) para movimentos relativos.</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Definir Rotação do Objeto/Imagem (<code>setRotation</code> / <code>setRotationNoob</code>)</h4>
+                    <p><strong>O que faz:</strong> Gira um objeto ou imagem em torno de seu ponto de âncora (geralmente o centro) para um ângulo específico.</p>
+                    <p><strong>Modo Normal:</strong> <code>setRotation</code></p>
+                    <p><strong>Modo Simplificado:</strong> <code>setRotationNoob</code></p>
+                    <p><strong>Parâmetros Principais:</strong></p>
+                    <ul>
+                        <li><code>Nome do objeto</code> / <code>Nome da imagem</code>: O identificador do elemento a ser girado.</li>
+                        <li><code>Rotação (0-360)</code>: O ângulo de rotação em graus. 0 graus geralmente é sem rotação, e valores positivos giram no sentido horário (pode variar).</li>
+                    </ul>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Fazer um carro virar para a esquerda ou direita.</li>
+                        <li>Animar uma hélice ou um ventilador girando.</li>
+                        <li>Orientar uma flecha para apontar na direção do movimento.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Importante para orientação visual e animações de rotação.</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Definir Tamanho do Objeto/Imagem (<code>setSize</code> / <code>setSizeNoob</code>)</h4>
+                    <p><strong>O que faz:</strong> Altera o tamanho visual de um objeto ou imagem. Geralmente é definido como uma porcentagem do tamanho original do sprite/imagem.</p>
+                    <p><strong>Modo Normal:</strong> <code>setSize</code> (pode ter opções para largura e altura separadas também: <code>setWidth</code>, <code>setHeight</code>)</p>
+                    <p><strong>Modo Simplificado:</strong> <code>setSizeNoob</code> (geralmente um valor percentual único que afeta largura e altura proporcionalmente)</p>
+                    <p><strong>Parâmetros Principais:</strong></p>
+                    <ul>
+                        <li><code>Nome do objeto</code> / <code>Nome da imagem</code>: O identificador do elemento.</li>
+                        <li><code>Tamanho (%)</code>: Um valor percentual (ex: <code>100</code> para tamanho original, <code>50</code> para metade do tamanho, <code>200</code> para o dobro do tamanho).</li>
+                        <li>(Normal) <code>Largura</code> / <code>Altura</code>: Valores específicos para dimensões, se usando <code>setWidth</code>/<code>setHeight</code>.</li>
+                    </ul>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Fazer um personagem encolher ao passar por uma passagem estreita.</li>
+                        <li>Aumentar o tamanho de um item quando o jogador está perto dele para destacá-lo.</li>
+                        <li>Criar um efeito de "zoom" em um objeto.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Para efeitos visuais, feedback e adaptação de elementos a diferentes contextos.</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Definir Opacidade do Objeto/Imagem (<code>setAlpha</code> / <code>setAlphaNoob</code>)</h4>
+                    <p><strong>O que faz:</strong> Controla o nível de transparência de um objeto ou imagem.</p>
+                    <p><strong>Modo Normal:</strong> <code>setAlpha</code></p>
+                    <p><strong>Modo Simplificado:</strong> <code>setAlphaNoob</code></p>
+                    <p><strong>Parâmetros Principais:</strong></p>
+                    <ul>
+                        <li><code>Nome do objeto</code> / <code>Nome da imagem</code>: O identificador do elemento.</li>
+                        <li><code>Opacidade (0-100)</code>: Um valor onde <code>100</code> é totalmente opaco (visível) e <code>0</code> é totalmente transparente (invisível). Valores intermediários criam translucidez.</li>
+                    </ul>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Fazer um personagem ficar semitransparente após tomar dano (efeito de invencibilidade temporária).</li>
+                        <li>Esmaecer (fade out) elementos da interface.</li>
+                        <li>Criar fantasmas ou objetos etéreos.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Essencial para efeitos visuais de fade, destaque e para indicar estados especiais de objetos.</p>
+                </div>
+
+
+                <div class="block-description">
+                    <h4>Remover Objeto (<code>removeObject</code>) / Remover Imagem (<code>removeObjectNoob</code>)</h4>
+                    <p><strong>O que faz:</strong> Exclui permanentemente um objeto ou imagem da tela e da memória do jogo.</p>
+                    <p><strong>Modo Normal:</strong> <code>removeObject</code></p>
+                    <p><strong>Modo Simplificado:</strong> <code>removeObjectNoob</code></p>
+                    <p><strong>Parâmetros Principais:</strong></p>
+                    <ul>
+                        <li><code>Nome do objeto</code> / <code>Nome da imagem</code>: O identificador do elemento a ser removido.</li>
+                    </ul>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Remover um inimigo após ser derrotado.</li>
+                        <li>Remover uma moeda ou item após ser coletado pelo jogador.</li>
+                        <li>Limpar projéteis que saíram da tela.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Crucial para o gerenciamento de recursos (evitar que o jogo fique lento com muitos objetos desnecessários) e para a lógica de progressão do jogo.</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Esconder Objeto (<code>hideObject</code>) / Esconder Imagem (<code>hideObjectNoob</code>)</h4>
+                    <p><strong>O que faz:</strong> Torna um objeto ou imagem invisível na tela, mas ele ainda existe na memória do jogo e pode ter suas propriedades alteradas ou ser tornado visível novamente.</p>
+                    <p><strong>Modo Normal:</strong> <code>hideObject</code></p>
+                    <p><strong>Modo Simplificado:</strong> <code>hideObjectNoob</code></p>
+                    <p><strong>Parâmetros Principais:</strong></p>
+                    <ul>
+                        <li><code>Nome do objeto</code> / <code>Nome da imagem</code>: O identificador do elemento a ser escondido.</li>
+                    </ul>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Esconder um menu quando o jogo começa.</li>
+                        <li>Tornar um item secreto invisível até que uma condição seja cumprida.</li>
+                        <li>Desativar temporariamente um inimigo sem removê-lo completamente.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Útil para controlar a visibilidade dos elementos sem a necessidade de recriá-los constantemente.</p>
+                    <p><strong>Nota:</strong> O bloco complementar é <code>Mostrar Objeto</code> (<code>showObject</code>) / <code>Mostrar Imagem</code> (<code>showObjectNoob</code>).</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Aplicar Filtro (Ex: Desfoque - <code>setBlur</code>) (Modo Normal)</h4>
+                    <p><strong>O que faz:</strong> Adiciona um efeito visual (shader ou filtro) a um objeto existente. O CCode oferece diversos filtros como desfoque, pixelização, brilho (bloom), chroma key, etc.</p>
+                    <p><strong>Modo Normal:</strong> Ex: <code>setBlur</code>, <code>setPixellization</code>, <code>setBloom</code>, etc.</p>
+                    <p><strong>Modo Simplificado:</strong> Geralmente não possui acesso direto a filtros complexos.</p>
+                    <p><strong>Parâmetros Principais (Variam por filtro):</strong></p>
+                    <ul>
+                        <li><code>Nome do objeto</code>: O objeto ao qual o filtro será aplicado.</li>
+                        <li>Parâmetros específicos do filtro (ex: para <code>setBlur</code>: <code>Tamanho horizontal/vertical do desfoque</code>, <code>Força horizontal/vertical</code>).</li>
+                        <li>Muitos filtros também aceitam parâmetros de animação (<code>Tipo de animação</code>, <code>Tempo</code>, <code>Curva de transição</code>, etc.) para aplicar o efeito gradualmente.</li>
+                    </ul>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Aplicar um leve desfoque a objetos no fundo para criar profundidade.</li>
+                        <li>Fazer um objeto brilhar intensamente ao ser ativado.</li>
+                        <li>Pixelizar a tela durante uma transição ou efeito especial.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Permite um grande enriquecimento visual e a criação de efeitos especiais avançados. Requer mais conhecimento sobre os parâmetros de cada filtro.</p>
+                    <p><strong>Nota:</strong> Para remover um filtro, geralmente se usa o bloco <code>Remover Filtro</code> (<code>deleteFilter</code>).</p>
+                </div>
+                <!-- Adicionar mais blocos de Objetos e Filtros -->
+
+            </section>
+        </main>
+    </div>
+     <footer>
+        <div class="container">
+            <p>&copy; 2023 CCode FanWiki. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="../../js/main.js"></script>
+</body>
+</html>

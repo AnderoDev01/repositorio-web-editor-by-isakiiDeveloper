@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocos de Controle - CCode Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="manifest" href="../../manifest.json">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../../index.html"><img src="../../images/logo.png" alt="CCode Logo" id="logo"></a>
+            <h1><a href="../../index.html" style="color:white; text-decoration:none;">CCode Wiki</a></h1>
+            <nav id="top-nav">
+                <a href="../../index.html">Home</a>
+                <a href="../introduction.html">Introdução</a>
+                <a href="../modes.html">Modos de Uso</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-container">
+        <aside id="sidebar">
+            <h2>Navegação</h2>
+            <input type="text" id="search-bar" placeholder="Buscar na Wiki...">
+            <ul>
+                <li><a href="../../index.html">Página Inicial</a></li>
+                <li><a href="../introduction.html">Introdução ao CCode</a></li>
+                <li><a href="../modes.html">Modo Normal vs. Simplificado</a></li>
+                <li>
+                    <span class="category-toggle">Categorias de Blocos</span>
+                    <ul class="submenu open">
+                        <li><a href="events.html">Eventos</a></li>
+                        <li><a href="data-text.html">Dados & Texto</a></li>
+                        <li><a href="objects-filters.html">Objetos & Filtros / Imagens</a></li>
+                        <li><a href="control.html">Controle</a></li>
+                        <li><a href="shapes.html">Formas</a></li>
+                        <li><a href="physics.html">Física</a></li>
+                        <li><a href="media.html">Mídia</a></li>
+                        <li><a href="transitions.html">Transições</a></li>
+                        <li><a href="editor-expressions.html">Editor de Expressões</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <main id="main-content">
+            <section>
+                <h2>Blocos de Controle</h2>
+                <p>Os blocos de controle são essenciais para determinar o fluxo de execução do seu programa. Eles permitem que você tome decisões (condicionais), repita ações (loops) e gerencie o tempo (temporizadores).</p>
+
+                <div class="block-description">
+                    <h4>Se Condição For Verdadeira (<code>if</code>)</h4>
+                    <p><strong>O que faz:</strong> Verifica uma condição lógica. Se a condição for verdadeira, os blocos aninhados dentro do "Se" são executados. Caso contrário, são ignorados (a menos que haja um bloco "Senão" ou "Senão, Se").</p>
+                    <p><strong>Modo Normal e Simplificado:</strong> Presente em ambos, fundamental para a lógica.</p>
+                    <p><strong>Parâmetros Principais:</strong></p>
+                    <ul>
+                        <li><code>Condição</code>: Uma expressão que resulta em verdadeiro ou falso (ex: <code>pontuacao > 100</code>, <code>vidas == 0</code>, <code>objeto_colidiu == verdadeiro</code>). Pode ser criada usando o Editor de Expressões.</li>
+                    </ul>
+                    <p><strong>Estrutura:</strong></p>
+                    <pre><code>
+SE (condição) ENTÃO
+    [Blocos a serem executados se a condição for verdadeira]
+[SENÃO, SE (outra_condição) ENTÃO]  (Opcional)
+    [Blocos para outra condição]
+[SENÃO] (Opcional)
+    [Blocos a serem executados se nenhuma condição anterior for verdadeira]
+FIM SE
+                    </code></pre>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Verificar se o jogador tem vidas restantes: <code>SE (vidas > 0) ENTÃO ... SENÃO (mostrar tela de "Game Over")</code>.</li>
+                        <li>Verificar qual tecla foi pressionada para mover o personagem.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Pedra angular da programação, permitindo que seu jogo reaja a diferentes situações.</p>
+                    <p><strong>Nota:</strong> Requer um bloco de fechamento como `Fim da Condição` (<code>ifEnd</code>).</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Temporizador (<code>timer</code> / <code>timerName</code>)</h4>
+                    <p><strong>O que faz:</strong> Executa um conjunto de blocos após um determinado período de tempo. Pode ser configurado para repetir a execução várias vezes ou indefinidamente.</p>
+                    <p><strong>Modo Normal:</strong> <code>timer</code> (simples) e <code>timerName</code> (com nome, para controle individual).</p>
+                    <p><strong>Modo Simplificado:</strong> Geralmente uma versão simplificada de <code>timer</code>.</p>
+                    <p><strong>Parâmetros Principais:</strong></p>
+                    <ul>
+                        <li><code>Tempo (Segundos)</code>: O intervalo de tempo antes da primeira execução (e entre repetições).</li>
+                        <li><code>Qtd. de repetições</code>: Quantas vezes os blocos devem ser executados. Use <code>0</code> ou um valor negativo para repetição infinita.</li>
+                        <li>(Modo Normal - <code>timerName</code>) <code>Nome do temporizador</code>: Um identificador para pausar, retomar ou cancelar este temporizador específico.</li>
+                    </ul>
+                    <p><strong>Estrutura:</strong></p>
+                    <pre><code>
+TEMPORIZADOR (Tempo: 5s, Repetições: 10)
+    [Blocos a serem executados a cada 5 segundos, por 10 vezes]
+FIM TEMPORIZADOR
+                    </code></pre>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Fazer um inimigo aparecer na tela a cada 5 segundos.</li>
+                        <li>Criar um cronômetro de contagem regressiva.</li>
+                        <li>Animar um objeto piscando (alternando visibilidade) a cada 0.5 segundos.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Essencial para ações baseadas no tempo, eventos programados e animações simples.</p>
+                    <p><strong>Nota:</strong> Requer um bloco de fechamento como `Fim do Temporizador` (<code>timerEnd</code> / <code>timerNameEnd</code>). No Modo Normal, existem blocos para `Pausar Temporizador`, `Retomar Temporizador` e `Cancelar Temporizador` usando o nome definido.</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Repetir N Vezes (<code>repeat</code>)</h4>
+                    <p><strong>O que faz:</strong> Executa um conjunto de blocos aninhados um número específico de vezes.</p>
+                    <p><strong>Modo Normal e Simplificado:</strong> Funcionalidade similar.</p>
+                    <p><strong>Parâmetros Principais:</strong></p>
+                    <ul>
+                        <li><code>Qtd. de repetições</code>: O número exato de vezes que o loop será executado.</li>
+                    </ul>
+                    <p><strong>Estrutura:</strong></p>
+                    <pre><code>
+REPETIR (5 vezes)
+    [Blocos a serem executados 5 vezes]
+FIM REPETIÇÕES
+                    </code></pre>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Criar 5 inimigos de uma vez no início de uma onda.</li>
+                        <li>Tocar um efeito sonoro 3 vezes seguidas.</li>
+                        <li>Desenhar uma série de objetos em um padrão.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Útil para tarefas que precisam ser feitas um número fixo de vezes.</p>
+                    <p><strong>Nota:</strong> Requer um bloco de fechamento como `Fim das Repetições` (<code>repeatEnd</code>).</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Repetir Para Sempre (<code>forever</code>)</h4>
+                    <p><strong>O que faz:</strong> Executa um conjunto de blocos aninhados continuamente, em um loop infinito, frame após frame, até que o programa seja interrompido ou um bloco `Interromper Ciclo` (<code>break</code>) seja usado dentro dele (se aplicável à estrutura do loop).</p>
+                    <p><strong>Modo Normal e Simplificado:</strong> Conceito de loop principal.</p>
+                    <p><strong>Parâmetros Principais:</strong> Nenhum.</p>
+                    <p><strong>Estrutura:</strong></p>
+                    <pre><code>
+REPETIR PARA SEMPRE
+    [Blocos a serem executados continuamente]
+FIM DO LOOP INFINITO
+                    </code></pre>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Atualizar a posição do personagem com base na entrada do jogador a cada frame.</li>
+                        <li>Verificar colisões continuamente.</li>
+                        <li>Mover objetos de fundo para criar um efeito de parallax.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Frequentemente usado como o loop principal do jogo para atualizar a lógica e a renderização a cada frame.</p>
+                    <p><strong>Cuidado:</strong> Evite colocar operações muito pesadas dentro de um loop `Repetir Para Sempre` sem controle, pois isso pode causar lentidão no jogo. Considere usar temporizadores para tarefas que não precisam ser executadas a cada frame.</p>
+                    <p><strong>Nota:</strong> Requer um bloco de fechamento como `Fim do Loop Infinito` (<code>foreverEnd</code>).</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Chamar Função (<code>requestFun</code>) / Executar Ação (<code>requestFunNoob</code>)</h4>
+                    <p><strong>O que faz:</strong> Executa um conjunto de blocos que foram previamente definidos dentro de um bloco `Criar Função` (Modo Normal) ou `Criar Ação` (Modo Simplificado).</p>
+                    <p><strong>Modo Normal:</strong> <code>requestFun</code> (pode incluir `requestFunParams` para funções com parâmetros)</p>
+                    <p><strong>Modo Simplificado:</strong> <code>requestFunNoob</code></p>
+                    <p><strong>Parâmetros Principais:</strong></p>
+                    <ul>
+                        <li><code>Nome da função</code> / <code>Ação</code>: O nome da função/ação a ser executada.</li>
+                        <li>(Modo Normal - `requestFunParams`) <code>Parâmetros</code>: Uma tabela ou valores individuais a serem passados para a função.</li>
+                    </ul>
+                    <p><strong>Exemplo de Uso:</strong></p>
+                    <ul>
+                        <li>Se o jogador pressionar o botão de pulo, chamar a ação `PularPersonagem`.</li>
+                        <li>Após um inimigo ser derrotado, chamar a função `SpawnarItemDrop`.</li>
+                    </ul>
+                    <p><strong>Relevância:</strong> Essencial para organizar o código, evitar repetição e criar blocos de lógica reutilizáveis. Torna o código principal mais limpo e fácil de entender.</p>
+                </div>
+                <!-- Adicionar mais blocos de Controle
+                - Ciclo (Loop For) (for)
+                - Repetir Enquanto Condição For Verdadeira (while)
+                - Interromper Ciclo (break)
+                - ...
+                -->
+
+            </section>
+        </main>
+    </div>
+     <footer>
+        <div class="container">
+            <p>&copy; 2023 CCode FanWiki. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="../../js/main.js"></script>
+</body>
+</html>

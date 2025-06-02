@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCode Wiki - O Guia Definitivo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4A90E2">
+    <!-- Adicione seus ícones para Apple Touch aqui, se desejar -->
+</head>
+<body>
+    <header>
+        <div class="container">
+          <div id="logo">
+            <img src="images/logo.png" alt="CCode Logo" >
+          </div>
+            <h1>CCode Wiki</h1>
+            <nav id="top-nav">
+                <a href="index.html">Home</a>
+                <a href="pages/introduction.html">Introdução</a>
+                <a href="pages/modes.html">Modos de Uso</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-container">
+        <aside id="sidebar">
+            <h2>Navegação</h2>
+            <input type="text" id="search-bar" placeholder="Buscar na Wiki...">
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="pages/introduction.html">Introdução ao CCode</a></li>
+                <li><a href="pages/modes.html">Modo Normal vs. Simplificado</a></li>
+                <li>
+                    <span class="category-toggle">Categorias de Blocos</span>
+                    <ul class="submenu">
+                        <li><a href="pages/blocks/events.html">Eventos</a></li>
+                        <li><a href="pages/blocks/data-text.html">Dados & Texto</a></li>
+                        <li><a href="pages/blocks/objects-filters.html">Objetos & Filtros / Imagens</a></li>
+                        <li><a href="pages/blocks/control.html">Controle</a></li>
+                        <li><a href="pages/blocks/shapes.html">Formas</a></li>
+                        <li><a href="pages/blocks/physics.html">Física</a></li>
+                        <li><a href="pages/blocks/media.html">Mídia</a></li>
+                        <li><a href="pages/blocks/transitions.html">Transições</a></li>
+                        <li><a href="pages/blocks/editor-expressions.html">Editor de Expressões</a></li>
+                    </ul>
+                </li>
+                <!-- Adicionar mais links conforme necessário -->
+            </ul>
+        </aside>
+
+        <main id="main-content">
+            <section>
+                <h2>Bem-vindo à Wiki do CCode!</h2>
+                <p>Este é o seu guia central para aprender tudo sobre a game engine CCode. Explore os blocos, entenda os diferentes modos de uso e comece a criar seus próprios jogos e aplicativos incríveis!</p>
+                <p>Use a navegação à esquerda para encontrar informações específicas ou comece pela <a href="pages/introduction.html">Introdução ao CCode</a>.</p>
+            </section>
+
+            <section id="quick-links">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="pages/modes.html">Entendendo os Modos (Normal vs. Simplificado)</a></li>
+                    <li><a href="pages/blocks/events.html">Blocos de Eventos</a></li>
+                    <li><a href="pages/blocks/objects-filters.html">Trabalhando com Objetos/Imagens</a></li>
+                    <li><a href="pages/blocks/physics.html">Introdução à Física</a></li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 Seu Nome/Nome do Projeto CCode. Todos os direitos reservados.</p>
+            <p><button id="install-button" style="display: none;">Instalar Wiki Offline</button></p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

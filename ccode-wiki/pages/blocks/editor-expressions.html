@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Expressões - CCode Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="manifest" href="../../manifest.json">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../../index.html"><img src="../../images/logo.png" alt="CCode Logo" id="logo"></a>
+            <h1><a href="../../index.html" style="color:white; text-decoration:none;">CCode Wiki</a></h1>
+            <nav id="top-nav">
+                <a href="../../index.html">Home</a>
+                <a href="../introduction.html">Introdução</a>
+                <a href="../modes.html">Modos de Uso</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-container">
+        <aside id="sidebar">
+            <h2>Navegação</h2>
+            <input type="text" id="search-bar" placeholder="Buscar na Wiki...">
+            <ul>
+                <li><a href="../../index.html">Página Inicial</a></li>
+                <li><a href="../introduction.html">Introdução ao CCode</a></li>
+                <li><a href="../modes.html">Modo Normal vs. Simplificado</a></li>
+                <li>
+                    <span class="category-toggle">Categorias de Blocos</span>
+                    <ul class="submenu open">
+                        <li><a href="events.html">Eventos</a></li>
+                        <li><a href="data-text.html">Dados & Texto</a></li>
+                        <li><a href="objects-filters.html">Objetos & Filtros / Imagens</a></li>
+                        <li><a href="control.html">Controle</a></li>
+                        <li><a href="shapes.html">Formas</a></li>
+                        <li><a href="physics.html">Física</a></li>
+                        <li><a href="media.html">Mídia</a></li>
+                        <li><a href="transitions.html">Transições</a></li>
+                        <li><a href="editor-expressions.html">Editor de Expressões</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <main id="main-content">
+            <section>
+                <h2>Editor de Expressões</h2>
+                <p>O Editor de Expressões é uma ferramenta poderosa dentro do CCode que permite criar valores dinâmicos e condições complexas para seus blocos. Em vez de usar apenas valores fixos (como o número <code>10</code> ou o texto <code>"Olá"</code>), você pode combinar variáveis, operadores matemáticos, funções internas e propriedades de objetos.</p>
+                <p>Ele é acessado ao clicar em campos de parâmetros de blocos que esperam um valor calculado ou uma condição lógica (ex: o campo "Valor" do bloco <code>Definir Valor da Variável</code> ou o campo "Condição" do bloco <code>Se</code>).</p>
+
+                <h3>Como Usar</h3>
+                <p>Ao abrir o Editor de Expressões, você geralmente verá uma interface que permite:</p>
+                <ul>
+                    <li><strong>Digitar diretamente:</strong> Para números (<code>100</code>, <code>3.14</code>), texto (<code>"meu_texto"</code> - as aspas são importantes para strings), e valores lógicos (<code>verdadeiro</code>, <code>falso</code>).</li>
+                    <li><strong>Selecionar Variáveis:</strong> Uma lista das suas variáveis criadas estará disponível para inserção.</li>
+                    <li><strong>Selecionar Funções/Métodos:</strong> Listas de funções matemáticas, de texto, de propriedades de objetos, etc.</li>
+                    <li><strong>Usar Operadores:</strong> Para realizar cálculos e comparações.</li>
+                </ul>
+
+                <h3>Componentes Comuns em Expressões</h3>
+
+                <div class="block-description">
+                    <h4>Variáveis</h4>
+                    <p>Você pode usar os nomes das variáveis que você criou com blocos como <code>Definir Valor da Variável</code>.</p>
+                    <p><strong>Exemplo:</strong> Se você tem uma variável <code>pontuacao</code>, pode usá-la em uma expressão: <code>pontuacao + 10</code>.</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Operadores Matemáticos</h4>
+                    <ul>
+                        <li><code>+</code> (Adição)</li>
+                        <li><code>-</code> (Subtração)</li>
+                        <li><code>*</code> (Multiplicação)</li>
+                        <li><code>/</code> (Divisão)</li>
+                        <li><code>%</code> (Módulo - resto da divisão)</li>
+                        <li><code>^</code> (Potência - pode variar)</li>
+                    </ul>
+                    <p><strong>Exemplo:</strong> <code>(largura_tela / 2) - (largura_jogador / 2)</code> para centralizar um jogador.</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Operadores Lógicos e de Comparação</h4>
+                    <p>Usados principalmente em condições (ex: no bloco <code>Se</code>). Retornam <code>verdadeiro</code> ou <code>falso</code>.</p>
+                    <ul>
+                        <li><code>==</code> (Igual a)</li>
+                        <li><code>~=</code> ou <code>!=</code> (Diferente de)</li>
+                        <li><code>></code> (Maior que)</li>
+                        <li><code><</code> (Menor que)</li>
+                        <li><code>>=</code> (Maior ou igual a)</li>
+                        <li><code><=</code> (Menor ou igual a)</li>
+                        <li><code>e</code> (AND lógico - ambas as condições devem ser verdadeiras)</li>
+                        <li><code>ou</code> (OR lógico - pelo menos uma condição deve ser verdadeira)</li>
+                        <li><code>nao</code> (NOT lógico - inverte o valor lógico)</li>
+                    </ul>
+                    <p><strong>Exemplo:</strong> <code>vidas > 0 e pontuacao >= 1000</code>.</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Texto (Strings)</h4>
+                    <p>Texto deve ser colocado entre aspas (geralmente duplas <code>" "</code>).</p>
+                    <p><strong>Concatenação (juntar texto):</strong> Frequentemente usa o operador <code>..</code> (Lua) ou <code>+</code> (outras linguagens). Verifique a sintaxe específica do CCode.</p>
+                    <p><strong>Exemplo:</strong> <code>"Pontos: " .. pontuacao</code> (sintaxe Lua).</p>
+                </div>
+
+                <div class="block-description">
+                    <h4>Funções Internas (Exemplos Comuns)</h4>
+                    <p>O CCode oferece uma variedade de funções que podem ser chamadas dentro de expressões. A lista exata pode ser encontrada na interface do editor.</p>
+                    <p><strong>Matemáticas:</strong></p>
+                    <ul>
+                        <li><code>aleatorio(min, max)</code>: Retorna um número aleatório entre min e max.</li>
+                        <li><code>raiz(numero)</code>: Calcula a raiz quadrada.</li>
+                        <li><code>arredondar(numero)</code>: Arredonda para o inteiro mais próximo.</li>
+                        <li><code>seno(angulo)</code>, <code>cosseno(angulo)</code>, <code>tangente(angulo)</code>: Funções trigonométricas (ângulo geralmente em radianos).</li>
+                        <li><code>abs(numero)</code> ou <code>modulo(numero)</code> (para valor absoluto): Retorna o valor absoluto de um número.</li>
+                    </ul>
+                    <p><strong>Texto:</strong></p>
+                    <ul>
+                        <li><code>comprimento_texto(meu_texto)</code>: Retorna o número de caracteres no texto.</li>
+                        <li><code>texto_maiusculo(meu_texto)</code>, <code>texto_minusculo(meu_texto)</code>.</li>
+                        <li><code>substituir_no_texto(texto_original, texto_procurado, texto_substituto)</code>.</li>
+                    </ul>
+                    <p><strong>Propriedades de Objetos/Dispositivo:</strong></p>
+                    <ul>
+                        <li><code>posicao_x("nome_do_objeto")</code>: Retorna a coordenada X do objeto especificado.</li>
+                        <li><code>posicao_y("nome_do_objeto")</code>.</li>
+                        <li><code>largura("nome_do_objeto")</code>, <code>altura("nome_do_objeto")</code>.</li>
+                        <li><code>distancia("objeto1", "objeto2")</code>: Calcula a distância entre dois objetos.</li>
+                        <li><code>largura_tela()</code>, <code>altura_tela()</code>.</li>
+                        <li><code>dedo_tocando_tela_x()</code>, <code>dedo_tocando_tela_y()</code>: Posição do último toque na tela.</li>
+                    </ul>
+                    <p><strong>Outras:</strong></p>
+                    <ul>
+                        <li><code>ler_salvo("chave_K")</code>: Lê um valor salvo persistentemente.</li>
+                        <li><code>tempo_unix()</code>: Retorna o tempo atual em segundos desde a época Unix.</li>
+                    </ul>
+                    <p><strong>Exemplo de Expressão Complexa:</strong></p>
+                    <p><code>(posicao_x("jogador") < largura_tela() / 2) e (aleatorio(1, 10) > 5)</code></p>
+                    <p>Esta condição seria verdadeira se a posição X do jogador for menor que a metade da largura da tela E um número aleatório entre 1 e 10 for maior que 5.</p>
+                </div>
+
+                <h3>Dicas para Usar Expressões</h3>
+                <ul>
+                    <li><strong>Parênteses:</strong> Use parênteses <code>( )</code> para controlar a ordem das operações, assim como na matemática. <code>(2 + 3) * 5</code> é diferente de <code>2 + (3 * 5)</code>.</li>
+                    <li><strong>Tipos de Dados:</strong> Preste atenção aos tipos de dados. Tentar somar um número com um texto diretamente pode causar um erro. Algumas funções como <code>para_numero()</code> e <code>para_texto()</code> podem ser necessárias para conversões.</li>
+                    <li><strong>Aspas para Texto:</strong> Lembre-se sempre de colocar texto (strings) entre aspas. Nomes de variáveis e funções não usam aspas.</li>
+                    <li><strong>Teste Pequeno:</strong> Se uma expressão longa não funcionar, divida-a em partes menores para encontrar o erro. Use o bloco `Mostrar Notificação` ou `Alterar Texto` para exibir o resultado de partes da sua expressão e depurar.</li>
+                </ul>
+                <p>Dominar o Editor de Expressões abrirá um leque enorme de possibilidades para criar lógicas sofisticadas e dinâmicas em seus projetos CCode!</p>
+            </section>
+        </main>
+    </div>
+     <footer>
+        <div class="container">
+            <p>&copy; 2023 CCode FanWiki. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="../../js/main.js"></script>
+</body>
+</html>
