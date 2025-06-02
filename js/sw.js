@@ -25,7 +25,7 @@ const ASSETS_TO_CACHE = [
     '/icons/icon-192x192.png',
     '/icons/icon-512x512.png'
 ];
-];
+
 
 // Evento de Instalação: Cacheia os assets principais
 self.addEventListener('install', event => {
@@ -97,31 +97,9 @@ self.addEventListener('fetch', event => {
                     }
                     throw error;
                 });
-
                 // Retorna o cache imediatamente enquanto atualiza em segundo plano
                 return cachedResponse || fetchPromise;
-
-                // Se não está no cache, busca na rede
-                // console.log('[Service Worker] Buscando na rede:', event.request.url);
-                return fetch(event.request).then(networkResponse => {
-                    // Clona a resposta para poder usá-la e armazená-la no cache
-                    const responseToCache = networkResponse.clone();
-                    
-                    // Abre o cache e armazena a nova resposta
-                    // Apenas cacheia respostas válidas e que não sejam o próprio SW
-                    if (networkResponse && networkResponse.status === 200 && !event.request.url.endsWith('sw.js')) {
-                        caches.open(CACHE_NAME)
-                            .then(cache => {
-                                cache.put(event.request, responseToCache);
-                            });
-                    }
-                    return networkResponse;
-                }).catch(error => {
-                    console.error('[Service Worker] Erro ao buscar na rede:', error, event.request.url);
-                    // TODO: Você pode retornar uma página offline customizada aqui se a rede falhar
-                    // e o recurso não estiver no cache.
-                    // Ex: return caches.match('pages/offline.html');
-                });
-            })
+            });
+        })
     );
 });
