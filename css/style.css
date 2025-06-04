@@ -304,3 +304,70 @@ main {
     transform: translateY(-5px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
+
+/* Tema Dark Divertido e Estiloso */
+body.dark-mode {
+    background-color: #1e1e2f;
+    color: #e4e4f0;
+}
+
+:root.dark-mode {
+    --primary-color: #ff6f61;
+    --primary-dark: #e65c50;
+    --text-color: #e4e4f0;
+    --bg-color: #1e1e2f;
+    --white: #2e2e3f;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+header.dark-mode {
+    background-color: var(--primary-color);
+    border-bottom-color: var(--primary-dark);
+}
+
+header.dark-mode #logo {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+}
+
+header.dark-mode nav#top-nav a {
+    color: var(--white);
+}
+
+header.dark-mode nav#top-nav a:hover::after,
+header.dark-mode nav#top-nav a.active::after {
+    background-color: var(--primary-dark);
+}
+
+#sidebar.dark-mode {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+}
+
+#sidebar.dark-mode h2 {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+#sidebar.dark-mode nav ul li a {
+    color: var(--text-color);
+}
+
+#sidebar.dark-mode nav ul li a:hover {
+    background-color: var(--primary-dark);
+    color: var(--white);
+}
+
+main.dark-mode {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.btn-primary.dark-mode {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary.dark-mode:hover {
+    background-color: var(--primary-dark);
+}
