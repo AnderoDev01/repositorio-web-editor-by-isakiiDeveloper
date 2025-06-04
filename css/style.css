@@ -53,24 +53,37 @@ header {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 1rem;
+    min-height: 70px;
+    padding: 0.5rem 0;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 0 1 auto;
+    min-width: 200px;
 }
 
 header #logo {
     display: flex;
     align-items: center;
     background-color: var(--white);
-    border-radius: 8px;
-    padding: 0.5rem;
+    border-radius: 12px;
+    padding: 0.75rem;
     transition: var(--transition);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header #logo:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 header #logo img {
-    height: 50px;
+    height: 40px;
     width: auto;
+    object-fit: contain;
 }
 
 header h1 {
@@ -84,6 +97,8 @@ header nav#top-nav {
     gap: 1rem;
     flex-wrap: wrap;
     align-items: center;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 header nav#top-nav a {
@@ -100,12 +115,13 @@ header nav#top-nav a {
 header nav#top-nav a::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: -2px;
+    left: 50%;
     width: 0;
     height: 2px;
     background-color: var(--white);
-    transition: var(--transition);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
 header nav#top-nav a:hover::after,
@@ -186,10 +202,41 @@ main {
         margin-bottom: 1rem;
     }
 
-    header nav#top-nav {
-        width: 100%;
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+    }
+
+    .header-left {
         justify-content: center;
-        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    header nav#top-nav {
+        justify-content: center;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    header #logo {
+        margin: 0 auto;
+    }
+
+    header nav#top-nav a {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .header-left h1 {
+        font-size: 1.2rem;
     }
 }
 
