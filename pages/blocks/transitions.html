@@ -3,194 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Documentação dos blocos de transições do CCode">
     <title>Blocos de Transições - CCode Wiki</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="manifest" href="../../manifest.json">
+    <link rel="icon" type="image/png" href="../../icons/icon-192x192.png">
 </head>
-<body class="dark-mode">
+<body>
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="header-left">
                     <a href="../../index.html" id="logo">
-                        <img src="../../images/logo.png" alt="CCode Logo" style="width: 128px; height: 128px;">
+                        <img src="../../images/logo.png" alt="CCode Logo">
                     </a>
-                    <h1><a href="../../index.html" style="color:white; text-decoration:none;">CCode Wiki</a></h1>
+                    <h1><a href="../../index.html">CCode Wiki</a></h1>
                 </div>
-                <nav id="top-nav">
+                <nav>
                     <a href="../../index.html">Home</a>
+                    <a href="../getting-started.html">Primeiros Passos</a>
                     <a href="../introduction.html">Introdução</a>
-                    <a href="../modes.html">Modos de Uso</a>
+                    <a href="../modes.html">Modos</a>
+                    <a href="transitions.html" class="active">Blocos</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <div class="container main-container">
-        <aside id="sidebar">
-            <h2>Navegação</h2>
-            <input type="text" id="search-bar" placeholder="Buscar na Wiki...">
-            <ul>
-                <li><a href="../../index.html">Página Inicial</a></li>
-                <li><a href="../introduction.html">Introdução ao CCode</a></li>
-                <li><a href="../modes.html">Modo Normal vs. Simplificado</a></li>
-                <li>
-                    <span class="category-toggle">Categorias de Blocos</span>
-                    <ul class="submenu open">
-                        <li><a href="events.html">Eventos</a></li>
-                        <li><a href="data-text.html">Dados & Texto</a></li>
-                        <li><a href="objects-filters.html">Objetos & Filtros / Imagens</a></li>
-                        <li><a href="control.html">Controle</a></li>
-                        <li><a href="shapes.html">Formas</a></li>
-                        <li><a href="physics.html">Física</a></li>
-                        <li><a href="media.html">Mídia</a></li>
-                        <li><a href="transitions.html">Transições</a></li>
-                        <li><a href="editor-expressions.html">Editor de Expressões</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </aside>
-
-        <main id="main-content">
-            <section>
-                <h2>Blocos de Transições (Animações Suaves)</h2>
-                <p>Os blocos de transição permitem animar as propriedades de objetos (como posição, tamanho, rotação, opacidade) suavemente ao longo de um período de tempo, em vez de mudá-las instantaneamente. Isso cria animações mais fluidas e visualmente agradáveis.</p>
-
-                <div class="block-description">
-                    <h4>Definir Posição Suavemente (<code>setTransitionPos</code> / <code>setTransitionPosNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Move um objeto ou imagem de sua posição atual para uma nova posição (X, Y) de forma animada, durante um tempo especificado.</p>
-                    <p><strong>Modo Normal:</strong> <code>setTransitionPos</code></p>
-                    <p><strong>Modo Simplificado:</strong> <code>setTransitionPosNoob</code></p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome</code>: O nome do objeto/imagem a ser animado.</li>
-                        <li><code>Tipo</code>: (Mais relevante no Modo Normal) Especifica o tipo de elemento (Objeto, Texto, Nível, etc.).</li>
-                        <li><code>Tempo (Segundos)</code>: A duração da animação de transição.</li>
-                        <li><code>Posição (X)</code>: A coordenada X de destino.</li>
-                        <li><code>Posição (Y)</code>: A coordenada Y de destino.</li>
-                        <li>(Modo Normal) <code>Tipo de animação</code>: Ex: "Linear" (velocidade constante), "EaseIn" (começa devagar), "EaseOut" (termina devagar), "Bounce" (efeito de quicar).</li>
-                        <li>(Modo Normal) <code>Qtd. de repetições</code>: Quantas vezes a transição deve se repetir.</li>
-                        <li>(Modo Normal) <code>Curva de transição</code>: Parâmetro mais detalhado para o easing da animação.</li>
-                        <li>(Modo Normal) <code>Ao concluir</code>, <code>Ao pausar</code>, etc.: Funções de callback para eventos da transição.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Fazer um menu deslizar suavemente para dentro ou fora da tela.</li>
-                        <li>Mover uma plataforma para cima e para baixo de forma contínua e suave.</li>
-                        <li>Animar um personagem se movendo para um ponto específico no mapa.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Cria movimentos muito mais polidos e profissionais do que mudanças de posição instantâneas.</p>
+    <main class="container animate-fade-in">
+        <section class="content-section">
+            <h2>Blocos de Transições</h2>
+            <p>Aprenda como criar transições suaves e efeitos em seus jogos.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Animações</h3>
+                    <p>Transições e animações básicas.</p>
                 </div>
-
-                <div class="block-description">
-                    <h4>Definir Tamanho Suavemente (<code>setTransitionSize</code> / <code>setTransitionSizeNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Anima a mudança da largura e altura de um objeto/imagem para novos valores ao longo do tempo.</p>
-                    <p><strong>Modo Normal:</strong> <code>setTransitionSize</code></p>
-                    <p><strong>Modo Simplificado:</strong> <code>setTransitionSizeNoob</code></p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome</code>, <code>Tipo</code>, <code>Tempo (Segundos)</code>: Similares ao <code>setTransitionPos</code>.</li>
-                        <li><code>Largura</code>: A largura de destino.</li>
-                        <li><code>Altura</code>: A altura de destino.</li>
-                        <li>Outros parâmetros de animação do Modo Normal (tipo de animação, repetições, etc.).</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Fazer um botão "pulsar" aumentando e diminuindo de tamanho suavemente.</li>
-                        <li>Animar um objeto crescendo ou encolhendo ao ser coletado ou ativado.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Para efeitos de destaque, feedback visual e animações de transformação de tamanho.</p>
+                <div class="card">
+                    <h3>Efeitos</h3>
+                    <p>Efeitos visuais e transições.</p>
                 </div>
-
-                <div class="block-description">
-                    <h4>Definir Escala Suavemente (<code>setTransitionScale</code> / <code>setTransitionScaleNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Anima a escala (multiplicador de tamanho) de um objeto/imagem nos eixos X e Y.</p>
-                    <p><strong>Modo Normal:</strong> <code>setTransitionScale</code></p>
-                    <p><strong>Modo Simplificado:</strong> <code>setTransitionScaleNoob</code></p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome</code>, <code>Tipo</code>, <code>Tempo (Segundos)</code>: Similares aos anteriores.</li>
-                        <li><code>Escala (X)</code>: Multiplicador de tamanho para a largura (ex: 1.0 para original, 0.5 para metade, 2.0 para dobro).</li>
-                        <li><code>Escala (Y)</code>: Multiplicador de tamanho para a altura.</li>
-                        <li>Outros parâmetros de animação do Modo Normal.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Criar um efeito de "pop" quando um objeto aparece.</li>
-                        <li>Animar um personagem "respirando" com leves alterações de escala.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Similar ao `setTransitionSize`, mas usa multiplicadores, o que pode ser mais intuitivo para certos tipos de animação.</p>
+                <div class="card">
+                    <h3>Timeline</h3>
+                    <p>Controle de tempo das transições.</p>
                 </div>
+            </div>
+        </section>
 
-                <div class="block-description">
-                    <h4>Definir Rotação Suavemente (<code>setTransitionRotation</code> / <code>setTransitionRotationNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Anima a rotação de um objeto/imagem para um novo ângulo ao longo do tempo.</p>
-                    <p><strong>Modo Normal:</strong> <code>setTransitionRotation</code></p>
-                    <p><strong>Modo Simplificado:</strong> <code>setTransitionRotationNoob</code></p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome</code>, <code>Tipo</code>, <code>Tempo (Segundos)</code>: Similares aos anteriores.</li>
-                        <li><code>Rotação (0-360)</code>: O ângulo de destino em graus.</li>
-                        <li>Outros parâmetros de animação do Modo Normal.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Fazer uma engrenagem girar suavemente.</li>
-                        <li>Animar uma carta virando.</li>
-                        <li>Suavemente orientar um personagem para uma nova direção.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Para animações de giro e orientação fluidas.</p>
-                </div>
+        <section class="content-section">
+            <h3>Navegação Rápida</h3>
+            <nav class="card-grid">
+                <a href="shapes.html" class="card">
+                    <h3>Blocos de Formas</h3>
+                    <p>Formas geométricas</p>
+                </a>
+                <a href="objects-filters.html" class="card">
+                    <h3>Objetos e Filtros</h3>
+                    <p>Manipulação de objetos</p>
+                </a>
+                <a href="media.html" class="card">
+                    <h3>Blocos de Mídia</h3>
+                    <p>Áudio e vídeo</p>
+                </a>
+            </nav>
+        </section>
+    </main>
 
-                <div class="block-description">
-                    <h4>Definir Opacidade Suavemente (<code>setTransitionAlpha</code> / <code>setTransitionAlphaNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Anima a transparência (opacidade) de um objeto/imagem para um novo valor ao longo do tempo.</p>
-                    <p><strong>Modo Normal:</strong> <code>setTransitionAlpha</code></p>
-                    <p><strong>Modo Simplificado:</strong> <code>setTransitionAlphaNoob</code></p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome</code>, <code>Tipo</code>, <code>Tempo (Segundos)</code>: Similares aos anteriores.</li>
-                        <li><code>Opacidade (0-100)</code>: O nível de opacidade de destino (0 = transparente, 100 = opaco).</li>
-                        <li>Outros parâmetros de animação do Modo Normal.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Fazer um objeto aparecer suavemente (fade in) ou desaparecer (fade out).</li>
-                        <li>Criar um efeito de "piscar" para um item que pode ser coletado.</li>
-                        <li>Animar um fantasma tornando-se mais ou menos visível.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Essencial para efeitos de fade, transições de visibilidade e para dar um toque profissional às aparições e desaparecimentos de objetos.</p>
-                </div>
-
-                <div class="block-description">
-                    <h4>Controle de Transições (Modo Normal - Ex: <code>setTransitionPause</code>)</h4>
-                    <p><strong>O que faz:</strong> O Modo Normal geralmente oferece blocos para controlar transições em andamento.</p>
-                    <p><strong>Modo Normal:</strong> <code>setTransitionPause</code>, <code>setTransitionResume</code>, <code>setTransitionCancel</code>.</p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome</code>: O nome do objeto/elemento cuja transição está ativa.</li>
-                        <li><code>Tipo</code>: O tipo do elemento.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Pausar todas as animações de transição quando o jogo é pausado.</li>
-                        <li>Cancelar uma animação de movimento se o jogador realizar outra ação.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Oferece controle mais fino sobre o ciclo de vida das animações suaves.</p>
-                </div>
-
-                 <!-- Adicionar mais blocos de Transições e Partículas
-                 - setTransitionTo (bloco mais genérico)
-                 - Blocos de Partículas (newEmitter, setEmitterPos, etc.) se forem considerados parte de "transições" ou animações visuais.
-                 -->
-            </section>
-        </main>
-    </div>
-     <footer>
+    <footer>
         <div class="container">
-            <p>&copy; 2023 CCode FanWiki. Todos os direitos reservados.</p>
+            <p>&copy; 2025 CCode Wiki. Todos os direitos reservados.</p>
+            <nav>
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+                <a href="#">GitHub</a>
+            </nav>
         </div>
     </footer>
+
     <script src="../../js/main.js"></script>
 </body>
 </html>

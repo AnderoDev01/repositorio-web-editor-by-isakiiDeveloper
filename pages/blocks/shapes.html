@@ -3,179 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Documentação dos blocos de formas do CCode">
     <title>Blocos de Formas - CCode Wiki</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="manifest" href="../../manifest.json">
+    <link rel="icon" type="image/png" href="../../icons/icon-192x192.png">
 </head>
-<body class="dark-mode">
+<body>
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="header-left">
                     <a href="../../index.html" id="logo">
-                        <img src="../../images/logo.png" alt="CCode Logo" style="width: 128px; height: 128px;">
+                        <img src="../../images/logo.png" alt="CCode Logo">
                     </a>
-                    <h1><a href="../../index.html" style="color:white; text-decoration:none;">CCode Wiki</a></h1>
+                    <h1><a href="../../index.html">CCode Wiki</a></h1>
                 </div>
-                <nav id="top-nav">
+                <nav>
                     <a href="../../index.html">Home</a>
+                    <a href="../getting-started.html">Primeiros Passos</a>
                     <a href="../introduction.html">Introdução</a>
-                    <a href="../modes.html">Modos de Uso</a>
+                    <a href="../modes.html">Modos</a>
+                    <a href="shapes.html" class="active">Blocos</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <div class="container main-container">
-        <aside id="sidebar">
-            <h2>Navegação</h2>
-            <input type="text" id="search-bar" placeholder="Buscar na Wiki...">
-            <ul>
-                <li><a href="../../index.html">Página Inicial</a></li>
-                <li><a href="../introduction.html">Introdução ao CCode</a></li>
-                <li><a href="../modes.html">Modo Normal vs. Simplificado</a></li>
-                <li>
-                    <span class="category-toggle">Categorias de Blocos</span>
-                    <ul class="submenu open">
-                        <li><a href="events.html">Eventos</a></li>
-                        <li><a href="data-text.html">Dados & Texto</a></li>
-                        <li><a href="objects-filters.html">Objetos & Filtros / Imagens</a></li>
-                        <li><a href="control.html">Controle</a></li>
-                        <li><a href="shapes.html">Formas</a></li>
-                        <li><a href="physics.html">Física</a></li>
-                        <li><a href="media.html">Mídia</a></li>
-                        <li><a href="transitions.html">Transições</a></li>
-                        <li><a href="editor-expressions.html">Editor de Expressões</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </aside>
-
-        <main id="main-content">
-            <section>
-                <h2>Blocos de Formas e Texturas</h2>
-                <p>Estes blocos permitem criar formas geométricas básicas (retângulos, círculos, linhas) e manipular as texturas (imagens) dos seus objetos, incluindo cores e contornos.</p>
-
-                <div class="block-description">
-                    <h4>Definir Textura do Objeto (<code>setSprite</code>) / Aplicar Imagem2 Sobre Imagem1 (<code>setSpriteNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Muda a imagem visual (textura) de um objeto que já existe na tela.</p>
-                    <p><strong>Modo Normal:</strong> <code>setSprite</code></p>
-                    <p><strong>Modo Simplificado:</strong> <code>setSpriteNoob</code></p>
-                    <p><strong>Parâmetros Principais (Normal):</strong></p>
-                    <ul>
-                        <li><code>Nome do objeto</code>: O objeto cuja textura será alterada.</li>
-                        <li><code>Nome do sprite</code>: O nome do novo arquivo de imagem (dos recursos) a ser aplicado.</li>
-                    </ul>
-                    <p><strong>Parâmetros Principais (Simplificado):</strong></p>
-                    <ul>
-                        <li><code>Nome da imagem1</code>: A imagem existente que terá sua aparência alterada.</li>
-                        <li><code>Nome da imagem2</code>: A nova imagem (dos recursos) a ser aplicada.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Mudar a sprite do personagem quando ele coleta um power-up (ex: de "normal.png" para "com_escudo.png").</li>
-                        <li>Alterar a imagem de um bloco após ele ser atingido.</li>
-                        <li>Ciclar entre diferentes frames de uma animação manualmente (embora haja blocos de animação melhores para isso).</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Permite que a aparência dos objetos mude dinamicamente durante o jogo.</p>
+    <main class="container animate-fade-in">
+        <section class="content-section">
+            <h2>Blocos de Formas</h2>
+            <p>Aprenda como criar e manipular formas geométricas em seus jogos.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Formas Básicas</h3>
+                    <p>Círculos, retângulos e polígonos.</p>
                 </div>
-
-                <div class="block-description">
-                    <h4>Criar Retângulo com Cor (<code>newRect</code> / <code>newRectNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Desenha um retângulo sólido preenchido com uma cor específica na tela. Este retângulo é tratado como um objeto/imagem normal e pode ter outras propriedades (como física) aplicadas a ele.</p>
-                    <p><strong>Modo Normal:</strong> <code>newRect</code></p>
-                    <p><strong>Modo Simplificado:</strong> <code>newRectNoob</code></p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome do objeto</code> / <code>Nome da imagem</code>: Um nome para identificar este retângulo.</li>
-                        <li><code>Cor</code>: A cor de preenchimento do retângulo (pode ser um nome de cor, ex: "vermelho", ou um valor hexadecimal/RGB).</li>
-                        <li><code>Largura</code>: A largura do retângulo em pixels.</li>
-                        <li><code>Altura</code>: A altura do retângulo em pixels.</li>
-                        <li><code>Posição (X)</code>: Coordenada X do canto superior esquerdo (ou centro, dependendo da âncora padrão).</li>
-                        <li><code>Posição (Y)</code>: Coordenada Y.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Criar plataformas simples para um jogo de plataforma.</li>
-                        <li>Desenhar botões ou elementos de interface sem precisar de arquivos de imagem.</li>
-                        <li>Criar um fundo colorido para uma seção da tela.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Útil para prototipagem rápida, elementos de UI simples e formas geométricas básicas que não requerem texturas complexas.</p>
+                <div class="card">
+                    <h3>Transformações</h3>
+                    <p>Rotação, escala e posição.</p>
                 </div>
-
-                <div class="block-description">
-                    <h4>Criar Círculo (<code>newCircle</code> / <code>newCircleNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Desenha um círculo sólido preenchido com uma cor na tela.</p>
-                    <p><strong>Modo Normal:</strong> <code>newCircle</code></p>
-                    <p><strong>Modo Simplificado:</strong> <code>newCircleNoob</code></p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome do objeto</code> / <code>Nome da imagem</code>: Nome para identificar o círculo.</li>
-                        <li>(Normal) <code>Cor</code>: A cor de preenchimento. (No simplificado, a cor pode ser definida com um bloco separado `Definir Cor da Imagem`).</li>
-                        <li><code>Raio</code>: O raio do círculo em pixels.</li>
-                        <li><code>Posição (X)</code>: Coordenada X do centro do círculo.</li>
-                        <li><code>Posição (Y)</code>: Coordenada Y do centro do círculo.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Criar bolas para um jogo de bilhar ou arkanoid.</li>
-                        <li>Representar áreas de efeito circulares.</li>
-                        <li>Elementos de design arredondados.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Para criar objetos circulares sem a necessidade de sprites. Útil em conjunto com física para simulações de bolas.</p>
+                <div class="card">
+                    <h3>Estilos</h3>
+                    <p>Cores, gradientes e preenchimentos.</p>
                 </div>
+            </div>
+        </section>
 
-                <div class="block-description">
-                    <h4>Definir Cor do Objeto/Imagem (<code>setColor</code> / <code>setColorNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Altera a cor de preenchimento de um objeto/imagem que foi criado como uma forma (retângulo, círculo) ou, em alguns casos, pode aplicar uma tonalidade a um objeto com textura (sprite).</p>
-                    <p><strong>Modo Normal:</strong> <code>setColor</code> (também <code>setRGB</code>, <code>setHEX</code> para formatos de cor específicos)</p>
-                    <p><strong>Modo Simplificado:</strong> <code>setColorNoob</code></p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome do objeto</code> / <code>Nome da imagem</code>: O elemento cuja cor será alterada.</li>
-                        <li><code>Cor</code>: A nova cor (nome, hexadecimal, RGB).</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Mudar a cor de um botão quando ele é pressionado.</li>
-                        <li>Fazer uma plataforma mudar de cor após ser pisada.</li>
-                        <li>Aplicar um tom avermelhado a um personagem quando ele toma dano (se o objeto não for uma forma sólida, o resultado pode variar).</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Permite feedback visual e alteração dinâmica da aparência de formas e, potencialmente, de sprites.</p>
-                </div>
+        <section class="content-section">
+            <h3>Navegação Rápida</h3>
+            <nav class="card-grid">
+                <a href="physics.html" class="card">
+                    <h3>Blocos de Física</h3>
+                    <p>Simulação física</p>
+                </a>
+                <a href="objects-filters.html" class="card">
+                    <h3>Objetos e Filtros</h3>
+                    <p>Manipulação de objetos</p>
+                </a>
+                <a href="transitions.html" class="card">
+                    <h3>Blocos de Transições</h3>
+                    <p>Efeitos de transição</p>
+                </a>
+            </nav>
+        </section>
+    </main>
 
-                <div class="block-description">
-                    <h4>Definir Largura do Contorno (<code>setStrokeWidth</code>) (Modo Normal)</h4>
-                    <p><strong>O que faz:</strong> Define a espessura da linha de contorno de um objeto que é uma forma (retângulo, círculo, linha, polígono). Não se aplica a objetos baseados em sprites (imagens bitmap).</p>
-                    <p><strong>Modo Normal:</strong> <code>setStrokeWidth</code></p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome do objeto</code>: O objeto forma cujo contorno será afetado.</li>
-                        <li><code>Largura</code>: A espessura do contorno em pixels. Um valor de <code>0</code> geralmente remove o contorno.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Adicionar uma borda preta a um botão retangular.</li>
-                        <li>Destacar uma área com um contorno mais grosso.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Permite customizar a aparência de formas geométricas, adicionando detalhes visuais.</p>
-                    <p><strong>Nota:</strong> Geralmente acompanhado pelo bloco <code>Definir Cor do Contorno</code> (<code>setStrokeColor</code>) para definir a cor da linha.</p>
-                </div>
-                <!-- Adicionar mais blocos de Formas
-                - newRoundedRect
-                - newLine
-                - newPolygon
-                - setBitmapSprite (se aplicável a formas)
-                - Gradientes (setLinearGradient, setRadialGradient)
-                -->
-            </section>
-        </main>
-    </div>
-     <footer>
+    <footer>
         <div class="container">
-            <p>&copy; 2023 CCode FanWiki. Todos os direitos reservados.</p>
+            <p>&copy; 2025 CCode Wiki. Todos os direitos reservados.</p>
+            <nav>
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+                <a href="#">GitHub</a>
+            </nav>
         </div>
     </footer>
+
     <script src="../../js/main.js"></script>
 </body>
 </html>

@@ -3,172 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Documentação dos blocos de mídia do CCode">
     <title>Blocos de Mídia - CCode Wiki</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="manifest" href="../../manifest.json">
+    <link rel="icon" type="image/png" href="../../icons/icon-192x192.png">
 </head>
-<body class="dark-mode">
+<body>
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="header-left">
                     <a href="../../index.html" id="logo">
-                        <img src="../../images/logo.png" alt="CCode Logo" style="width: 128px; height: 128px;">
+                        <img src="../../images/logo.png" alt="CCode Logo">
                     </a>
-                    <h1><a href="../../index.html" style="color:white; text-decoration:none;">CCode Wiki</a></h1>
+                    <h1><a href="../../index.html">CCode Wiki</a></h1>
                 </div>
-                <nav id="top-nav">
+                <nav>
                     <a href="../../index.html">Home</a>
+                    <a href="../getting-started.html">Primeiros Passos</a>
                     <a href="../introduction.html">Introdução</a>
-                    <a href="../modes.html">Modos de Uso</a>
+                    <a href="../modes.html">Modos</a>
+                    <a href="media.html" class="active">Blocos</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <div class="container main-container">
-        <aside id="sidebar">
-            <h2>Navegação</h2>
-            <input type="text" id="search-bar" placeholder="Buscar na Wiki...">
-            <ul>
-                <li><a href="../../index.html">Página Inicial</a></li>
-                <li><a href="../introduction.html">Introdução ao CCode</a></li>
-                <li><a href="../modes.html">Modo Normal vs. Simplificado</a></li>
-                <li>
-                    <span class="category-toggle">Categorias de Blocos</span>
-                    <ul class="submenu open">
-                        <li><a href="events.html">Eventos</a></li>
-                        <li><a href="data-text.html">Dados & Texto</a></li>
-                        <li><a href="objects-filters.html">Objetos & Filtros / Imagens</a></li>
-                        <li><a href="control.html">Controle</a></li>
-                        <li><a href="shapes.html">Formas</a></li>
-                        <li><a href="physics.html">Física</a></li>
-                        <li><a href="media.html">Mídia</a></li>
-                        <li><a href="transitions.html">Transições</a></li>
-                        <li><a href="editor-expressions.html">Editor de Expressões</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </aside>
-
-        <main id="main-content">
-            <section>
-                <h2>Blocos de Mídia (Sons e Vídeos)</h2>
-                <p>Os blocos de mídia são usados para carregar, reproduzir e controlar arquivos de áudio (músicas, efeitos sonoros) e vídeo dentro dos seus projetos CCode.</p>
-
-                <div class="block-description">
-                    <h4>Carregar Som (<code>loadSound</code> / <code>loadStream</code>) (Modo Normal)</h4>
-                    <p><strong>O que faz:</strong> Prepara um arquivo de som para ser reproduzido. `loadSound` geralmente carrega o som inteiro na memória (bom para efeitos sonoros curtos), enquanto `loadStream` carrega o som sob demanda (bom para músicas longas, economiza memória).</p>
-                    <p><strong>Modo Normal:</strong> <code>loadSound</code>, <code>loadStream</code></p>
-                    <p><strong>Modo Simplificado:</strong> Este passo é frequentemente abstraído; você apenas usa o nome do som diretamente no bloco "Tocar Som".</p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome da mídia</code>: Um nome único que você dará a este som carregado (ex: "som_pulo", "musica_tema").</li>
-                        <li><code>Nome do som</code>: O nome do arquivo de som (ex: "pulo.wav", "tema.mp3") que está nos recursos do projeto.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>No evento <code>Ao Iniciar</code>, carregar todos os efeitos sonoros e músicas que serão usados no jogo.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Necessário no Modo Normal antes que um som possa ser tocado. Garante que o som esteja pronto para reprodução rápida.</p>
+    <main class="container animate-fade-in">
+        <section class="content-section">
+            <h2>Blocos de Mídia</h2>
+            <p>Aprenda como trabalhar com áudio e vídeo em seus jogos usando o CCode.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Áudio</h3>
+                    <p>Reprodução e controle de som.</p>
                 </div>
-
-                <div class="block-description">
-                    <h4>Tocar Som (<code>playSound</code> / <code>playSoundNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Reproduz um som que foi previamente carregado (no Modo Normal) ou um som diretamente (no Modo Simplificado).</p>
-                    <p><strong>Modo Normal:</strong> <code>playSound</code></p>
-                    <p><strong>Modo Simplificado:</strong> <code>playSoundNoob</code></p>
-                    <p><strong>Parâmetros Principais (Normal):</strong></p>
-                    <ul>
-                        <li><code>Nome da mídia</code>: O nome dado ao som no bloco `Carregar Som`.</li>
-                        <li><code>Qtd. de repetições</code>: Quantas vezes o som deve ser repetido (0 ou negativo para loop infinito, 1 para tocar uma vez).</li>
-                        <li><code>Ao concluir</code> (Opcional): Nome de uma função a ser chamada quando o som terminar de tocar.</li>
-                        <li><code>Tempo (Segundos)</code> (Opcional): Um atraso antes do som começar a tocar.</li>
-                        <li><code>Fade out (Segundos)</code> (Opcional): Tempo para o som diminuir gradualmente de volume ao parar (se aplicável).</li>
-                    </ul>
-                    <p><strong>Parâmetros Principais (Simplificado):</strong></p>
-                    <ul>
-                        <li><code>Nome do som</code>: O nome do arquivo de som (dos recursos).</li>
-                        <li><code>Qtd. de repetições</code>: Similar ao Modo Normal.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Tocar "som_pulo" quando o personagem pula.</li>
-                        <li>Iniciar "musica_tema" em loop no início do jogo.</li>
-                        <li>Tocar um efeito sonoro de explosão quando um inimigo é destruído.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Essencial para adicionar feedback auditivo e ambientação ao jogo.</p>
+                <div class="card">
+                    <h3>Vídeo</h3>
+                    <p>Integração de vídeos.</p>
                 </div>
-
-                <div class="block-description">
-                    <h4>Parar Som (<code>stopSound</code> / <code>stopSoundNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Interrompe imediatamente a reprodução de um som que está tocando.</p>
-                    <p><strong>Modo Normal:</strong> <code>stopSound</code></p>
-                    <p><strong>Modo Simplificado:</strong> <code>stopSoundNoob</code></p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome da mídia</code> / <code>Nome do som</code>: O identificador do som a ser parado.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Parar a música do menu quando o jogo começa.</li>
-                        <li>Interromper um efeito sonoro longo se a ação que o causou for cancelada.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Permite controle sobre a reprodução de áudio, evitando sons sobrepostos ou indesejados.</p>
+                <div class="card">
+                    <h3>Imagens</h3>
+                    <p>Manipulação de sprites e texturas.</p>
                 </div>
+            </div>
+        </section>
 
-                <div class="block-description">
-                    <h4>Definir Volume do Som (<code>setVolume</code> / <code>setVolumeNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Ajusta o nível de volume de um som específico que está tocando ou que será tocado.</p>
-                    <p><strong>Modo Normal:</strong> <code>setVolume</code></p>
-                    <p><strong>Modo Simplificado:</strong> <code>setVolumeNoob</code></p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome da mídia</code> / <code>Nome do som</code>: O identificador do som.</li>
-                        <li><code>Volume (0-100)</code>: O nível de volume, onde 0 é mudo e 100 é o volume máximo.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Permitir que o jogador ajuste o volume da música e dos efeitos sonoros nas configurações.</li>
-                        <li>Diminuir o volume de sons de fundo para dar destaque a sons mais importantes.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Oferece flexibilidade no controle da mixagem de áudio e permite personalização pelo usuário.</p>
-                </div>
+        <section class="content-section">
+            <h3>Navegação Rápida</h3>
+            <nav class="card-grid">
+                <a href="events.html" class="card">
+                    <h3>Blocos de Eventos</h3>
+                    <p>Gerenciamento de eventos</p>
+                </a>
+                <a href="physics.html" class="card">
+                    <h3>Blocos de Física</h3>
+                    <p>Simulação física</p>
+                </a>
+                <a href="shapes.html" class="card">
+                    <h3>Blocos de Formas</h3>
+                    <p>Formas geométricas</p>
+                </a>
+            </nav>
+        </section>
+    </main>
 
-                <div class="block-description">
-                    <h4>Criar Vídeo (<code>newVideo</code>) (Modo Normal)</h4>
-                    <p><strong>O que faz:</strong> Carrega e exibe um arquivo de vídeo na tela do jogo.</p>
-                    <p><strong>Modo Normal:</strong> <code>newVideo</code> (pode haver <code>newRemoteVideo</code> para vídeos da internet)</p>
-                    <p><strong>Modo Simplificado:</strong> Geralmente não possui blocos de vídeo dedicados, ou são mais limitados.</p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome da mídia</code>: Um nome único para este player de vídeo.</li>
-                        <li><code>Nome do vídeo</code>: O nome do arquivo de vídeo (ex: "intro.mp4") dos recursos.</li>
-                        <li><code>Ao concluir</code> (Opcional): Função a ser chamada quando o vídeo terminar.</li>
-                        <li><code>Posição (X)</code>, <code>Posição (Y)</code>: Onde o vídeo será exibido.</li>
-                        <li><code>Largura</code>, <code>Altura</code>: Dimensões do player de vídeo na tela.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Exibir uma cutscene de introdução.</li>
-                        <li>Mostrar um vídeo de tutorial.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Para adicionar cinemáticas ou conteúdo de vídeo aos projetos.</p>
-                    <p><strong>Nota:</strong> Geralmente acompanhado de blocos como <code>Pausar Mídia</code> (<code>pauseMedia</code>), <code>Retomar Mídia</code> (<code>resumeMedia</code>), <code>Remover Vídeo</code> (<code>removeVideo</code>) para controlar a reprodução.</p>
-                </div>
-                <!-- Adicionar mais blocos de Mídia
-                - pauseMedia, resumeMedia, seekMedia
-                - disposeSound
-                - Blocos relacionados a manipulação de arquivos, se forem considerados 'mídia' em CCode (newFile, readFile)
-                -->
-            </section>
-        </main>
-    </div>
-     <footer>
+    <footer>
         <div class="container">
-            <p>&copy; 2023 CCode FanWiki. Todos os direitos reservados.</p>
+            <p>&copy; 2025 CCode Wiki. Todos os direitos reservados.</p>
+            <nav>
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+                <a href="#">GitHub</a>
+            </nav>
         </div>
     </footer>
+
     <script src="../../js/main.js"></script>
 </body>
 </html>

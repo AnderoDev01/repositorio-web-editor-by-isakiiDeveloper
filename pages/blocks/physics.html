@@ -3,191 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Documentação dos blocos de física do CCode">
     <title>Blocos de Física - CCode Wiki</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="manifest" href="../../manifest.json">
+    <link rel="icon" type="image/png" href="../../icons/icon-192x192.png">
 </head>
-<body class="dark-mode">
+<body>
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="header-left">
                     <a href="../../index.html" id="logo">
-                        <img src="../../images/logo.png" alt="CCode Logo" style="width: 128px; height: 128px;">
+                        <img src="../../images/logo.png" alt="CCode Logo">
                     </a>
-                    <h1><a href="../../index.html" style="color:white; text-decoration:none;">CCode Wiki</a></h1>
+                    <h1><a href="../../index.html">CCode Wiki</a></h1>
                 </div>
-                <nav id="top-nav">
+                <nav>
                     <a href="../../index.html">Home</a>
+                    <a href="../getting-started.html">Primeiros Passos</a>
                     <a href="../introduction.html">Introdução</a>
-                    <a href="../modes.html">Modos de Uso</a>
+                    <a href="../modes.html">Modos</a>
+                    <a href="physics.html" class="active">Blocos</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <div class="container main-container">
-        <aside id="sidebar">
-            <h2>Navegação</h2>
-            <input type="text" id="search-bar" placeholder="Buscar na Wiki...">
-            <ul>
-                <li><a href="../../index.html">Página Inicial</a></li>
-                <li><a href="../introduction.html">Introdução ao CCode</a></li>
-                <li><a href="../modes.html">Modo Normal vs. Simplificado</a></li>
-                <li>
-                    <span class="category-toggle">Categorias de Blocos</span>
-                    <ul class="submenu open">
-                        <li><a href="events.html">Eventos</a></li>
-                        <li><a href="data-text.html">Dados & Texto</a></li>
-                        <li><a href="objects-filters.html">Objetos & Filtros / Imagens</a></li>
-                        <li><a href="control.html">Controle</a></li>
-                        <li><a href="shapes.html">Formas</a></li>
-                        <li><a href="physics.html">Física</a></li>
-                        <li><a href="media.html">Mídia</a></li>
-                        <li><a href="transitions.html">Transições</a></li>
-                        <li><a href="editor-expressions.html">Editor de Expressões</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </aside>
-
-        <main id="main-content">
-            <section>
-                <h2>Blocos de Física</h2>
-                <p>Os blocos de física permitem que seus objetos interajam com um mundo simulado, respondendo à gravidade, colisões, forças e outras propriedades físicas. Isso é essencial para criar jogos com movimento e interações realistas.</p>
-
-                <div class="block-description">
-                    <h4>Definir Corpo Físico do Objeto (<code>setBody</code>) / Tornar Imagem Física (<code>setBodyNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Ativa o comportamento físico para um objeto ou imagem. Sem este bloco, o objeto é apenas visual e não interage com o motor de física.</p>
-                    <p><strong>Modo Normal:</strong> <code>setBody</code></p>
-                    <p><strong>Modo Simplificado:</strong> <code>setBodyNoob</code></p>
-                    <p><strong>Parâmetros Principais (Normal):</strong></p>
-                    <ul>
-                        <li><code>Nome do objeto</code>: O objeto que se tornará físico.</li>
-                        <li><code>Tipo</code>:
-                            <ul>
-                                <li><code>Dinâmico</code>: Move-se sob a influência de forças (gravidade, impulsos) e colide com outros objetos. Ex: personagem, bola.</li>
-                                <li><code>Estático</code>: Não se move, mas outros objetos podem colidir com ele. Ex: chão, paredes, plataformas fixas.</li>
-                                <li>(Pode haver outros tipos como 'Cinemático' em engines mais complexas).</li>
-                            </ul>
-                        </li>
-                        <li><code>Densidade</code>: Afeta a massa do objeto (quão "pesado" ele é).</li>
-                        <li><code>Elasticidade</code> (Restituição/Bounce): Quão "saltitante" o objeto é após uma colisão (0 = não salta, 1 = salta com a mesma energia).</li>
-                        <li><code>Atrito</code>: Resistência ao deslizar contra outras superfícies.</li>
-                        <li><code>Gravidade</code>: (Opcional) Escala de gravidade específica para este objeto (1 = gravidade normal do mundo, 0 = sem gravidade, 2 = dobro da gravidade).</li>
-                        <li>(Avançado) <code>Filtro de colisão</code>, <code>Tabela de colisões</code>: Para definir com quais outros objetos ou categorias de objetos este pode colidir.</li>
-                    </ul>
-                    <p><strong>Parâmetros Principais (Simplificado):</strong></p>
-                    <ul>
-                        <li><code>Nome da imagem</code>: A imagem que se tornará física.</li>
-                        <li><code>Tipo</code>: Geralmente <code>Dinâmico</code> ou <code>Estático</code>.</li>
-                        <li><code>Elasticidade</code>: Quão saltitante.</li>
-                        <li><code>Gravidade</code>: Se o objeto é afetado pela gravidade do mundo.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Tornar o personagem do jogador um corpo dinâmico para que ele caia e colida.</li>
-                        <li>Tornar o chão e as plataformas corpos estáticos.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Bloco fundamental para qualquer jogo que utilize física.</p>
+    <main class="container animate-fade-in">
+        <section class="content-section">
+            <h2>Blocos de Física</h2>
+            <p>Aprenda como implementar simulações físicas em seus jogos.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Gravidade</h3>
+                    <p>Configuração de gravidade.</p>
                 </div>
-
-                <div class="block-description">
-                    <h4>Remover Corpo Físico do Objeto (<code>removeBody</code>) / Remover Física da Imagem (<code>removeBodyNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Desativa o comportamento físico de um objeto ou imagem. Ele voltará a ser apenas um elemento visual, não respondendo mais à gravidade ou colisões.</p>
-                    <p><strong>Modo Normal:</strong> <code>removeBody</code></p>
-                    <p><strong>Modo Simplificado:</strong> <code>removeBodyNoob</code></p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome do objeto</code> / <code>Nome da imagem</code>: O objeto cuja física será removida.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Transformar um objeto físico em um item de inventário puramente visual.</li>
-                        <li>Desativar a física de um objeto temporariamente por razões de performance ou lógica de jogo.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Útil para otimizar ou mudar o estado de um objeto em relação ao mundo físico.</p>
+                <div class="card">
+                    <h3>Colisões</h3>
+                    <p>Detecção e resposta a colisões.</p>
                 </div>
-
-                <div class="block-description">
-                    <h4>Fazer Pular (<code>setLinearVelocity</code>) / Fazer Pular em Y (<code>setLinearVelocityYNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Aplica uma velocidade linear instantânea a um objeto físico. Comumente usado para simular pulos ou lançamentos.</p>
-                    <p><strong>Modo Normal:</strong> <code>setLinearVelocity</code> (permite definir velocidade X e Y) e blocos separados como <code>setLinearVelocityX</code>, <code>setLinearVelocityY</code>.</p>
-                    <p><strong>Modo Simplificado:</strong> <code>setLinearVelocityYNoob</code> (focado no pulo vertical).</p>
-                    <p><strong>Parâmetros Principais (Normal - <code>setLinearVelocity</code>):</strong></p>
-                    <ul>
-                        <li><code>Nome do objeto</code>: O objeto a ser impulsionado.</li>
-                        <li><code>Velocidade (X)</code>: Velocidade no eixo horizontal.</li>
-                        <li><code>Velocidade (Y)</code>: Velocidade no eixo vertical (valores negativos geralmente impulsionam para cima).</li>
-                    </ul>
-                    <p><strong>Parâmetros Principais (Simplificado - <code>setLinearVelocityYNoob</code>):</strong></p>
-                    <ul>
-                        <li><code>Nome da imagem</code>: A imagem a ser impulsionada.</li>
-                        <li><code>Velocidade (Y)</code>: Força do pulo vertical.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Quando o jogador pressiona o botão de pulo, aplicar uma velocidade Y negativa ao personagem.</li>
-                        <li>Lançar um projétil aplicando velocidades X e Y.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Essencial para mecânicas de pulo, arremesso e qualquer movimento baseado em impulso inicial.</p>
+                <div class="card">
+                    <h3>Forças</h3>
+                    <p>Aplicação de forças nos objetos.</p>
                 </div>
+            </div>
+        </section>
 
-                <div class="block-description">
-                    <h4>Definir Hitbox (Ex: Retangular - <code>setHitboxBox</code>) (Modo Normal)</h4>
-                    <p><strong>O que faz:</strong> Define a forma geométrica precisa que o motor de física usará para detectar colisões para um objeto. Por padrão, a hitbox pode ser uma caixa baseada no tamanho do sprite, mas este bloco permite customização.</p>
-                    <p><strong>Modo Normal:</strong> <code>setHitboxBox</code> (retangular), <code>setHitboxCircle</code> (circular), <code>setHitboxPolygon</code> (poligonal), <code>setHitboxMesh</code> (baseada na transparência do sprite).</p>
-                    <p><strong>Modo Simplificado:</strong> Geralmente não oferece controle direto sobre hitboxes; elas são automáticas.</p>
-                    <p><strong>Parâmetros Principais (Ex: <code>setHitboxBox</code>):</strong></p>
-                    <ul>
-                        <li><code>Nome do objeto</code>: O objeto cuja hitbox será definida.</li>
-                        <li><code>Largura</code>: Largura da caixa de colisão.</li>
-                        <li><code>Altura</code>: Altura da caixa de colisão.</li>
-                        <li><code>Deslocamento (X)</code> (Opcional): Deslocamento da hitbox em relação ao centro do objeto no eixo X.</li>
-                        <li><code>Deslocamento (Y)</code> (Opcional): Deslocamento no eixo Y.</li>
-                        <li><code>Rotação (0-360)</code> (Opcional): Rotação da hitbox em relação ao objeto.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Fazer a hitbox de um personagem ser um pouco menor que sua imagem para uma jogabilidade mais "justa".</li>
-                        <li>Criar uma hitbox circular para uma bola, mesmo que o sprite seja quadrado.</li>
-                        <li>Definir hitboxes complexas para objetos de formato irregular usando polígonos.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Permite um controle fino sobre como as colisões são detectadas, o que pode impactar significativamente a sensação e a justiça do jogo.</p>
-                </div>
+        <section class="content-section">
+            <h3>Navegação Rápida</h3>
+            <nav class="card-grid">
+                <a href="events.html" class="card">
+                    <h3>Blocos de Eventos</h3>
+                    <p>Gerenciamento de eventos</p>
+                </a>
+                <a href="shapes.html" class="card">
+                    <h3>Blocos de Formas</h3>
+                    <p>Formas geométricas</p>
+                </a>
+                <a href="objects-filters.html" class="card">
+                    <h3>Objetos e Filtros</h3>
+                    <p>Manipulação de objetos</p>
+                </a>
+            </nav>
+        </section>
+    </main>
 
-                <div class="block-description">
-                    <h4>Definir Gravidade do Mundo (<code>setWorldGravity</code>) (Modo Normal)</h4>
-                    <p><strong>O que faz:</strong> Altera a força e direção da gravidade que afeta todos os objetos dinâmicos no mundo do jogo (a menos que tenham sua própria gravidade individual configurada).</p>
-                    <p><strong>Modo Normal:</strong> <code>setWorldGravity</code></p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Gravidade (X)</code>: Componente horizontal da gravidade (geralmente 0 para gravidade vertical padrão).</li>
-                        <li><code>Gravidade (Y)</code>: Componente vertical da gravidade (valores positivos geralmente puxam para baixo).</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Aumentar a gravidade para tornar os pulos mais curtos e as quedas mais rápidas.</li>
-                        <li>Mudar a direção da gravidade para criar níveis onde o jogador anda nas paredes ou no teto.</li>
-                        <li>Definir gravidade zero para um jogo no espaço.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Controla uma das forças fundamentais que afetam o movimento no jogo.</p>
-                </div>
-                <!-- Adicionar mais blocos de Física
-                - setBodyType
-                - setGravity (para objeto individual)
-                - setSensor / removeSensor
-                - setFixedRotation / removeFixedRotation
-                - Juntas (Joints) como setPivotJoint, setDistanceJoint (Modo Normal Avançado)
-                -->
-            </section>
-        </main>
-    </div>
-     <footer>
+    <footer>
         <div class="container">
-            <p>&copy; 2023 CCode FanWiki. Todos os direitos reservados.</p>
+            <p>&copy; 2025 CCode Wiki. Todos os direitos reservados.</p>
+            <nav>
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+                <a href="#">GitHub</a>
+            </nav>
         </div>
     </footer>
+
     <script src="../../js/main.js"></script>
 </body>
 </html>

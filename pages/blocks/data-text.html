@@ -3,194 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blocos de Dados & Texto - CCode Wiki</title>
+    <meta name="description" content="Documentação dos blocos de dados e texto do CCode">
+    <title>Blocos de Dados e Texto - CCode Wiki</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="manifest" href="../../manifest.json">
+    <link rel="icon" type="image/png" href="../../icons/icon-192x192.png">
 </head>
-<body class="dark-mode">
+<body>
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="header-left">
                     <a href="../../index.html" id="logo">
-                        <img src="../../images/logo.png" alt="CCode Logo" style="width: 128px; height: 128px;">
+                        <img src="../../images/logo.png" alt="CCode Logo">
                     </a>
-                    <h1><a href="../../index.html" style="color:white; text-decoration:none;">CCode Wiki</a></h1>
+                    <h1><a href="../../index.html">CCode Wiki</a></h1>
                 </div>
-                <nav id="top-nav">
+                <nav>
                     <a href="../../index.html">Home</a>
+                    <a href="../getting-started.html">Primeiros Passos</a>
                     <a href="../introduction.html">Introdução</a>
-                    <a href="../modes.html">Modos de Uso</a>
+                    <a href="../modes.html">Modos</a>
+                    <a href="data-text.html" class="active">Blocos</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <div class="container main-container">
-        <aside id="sidebar">
-            <h2>Navegação</h2>
-            <input type="text" id="search-bar" placeholder="Buscar na Wiki...">
-            <ul>
-                <li><a href="../../index.html">Página Inicial</a></li>
-                <li><a href="../introduction.html">Introdução ao CCode</a></li>
-                <li><a href="../modes.html">Modo Normal vs. Simplificado</a></li>
-                <li>
-                    <span class="category-toggle">Categorias de Blocos</span>
-                    <ul class="submenu open"> <!-- Mantém aberto nesta página -->
-                        <li><a href="events.html">Eventos</a></li>
-                        <li><a href="data-text.html">Dados & Texto</a></li>
-                        <li><a href="objects-filters.html">Objetos & Filtros / Imagens</a></li>
-                        <li><a href="control.html">Controle</a></li>
-                        <li><a href="shapes.html">Formas</a></li>
-                        <li><a href="physics.html">Física</a></li>
-                        <li><a href="media.html">Mídia</a></li>
-                        <li><a href="transitions.html">Transições</a></li>
-                        <li><a href="editor-expressions.html">Editor de Expressões</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </aside>
-
-        <main id="main-content">
-            <section>
-                <h2>Blocos de Dados & Texto</h2>
-                <p>Esses blocos são fundamentais para armazenar informações (como pontuação, nomes, configurações) e para exibir texto na tela do seu jogo ou aplicativo.</p>
-
-                <div class="block-description">
-                    <h4>Definir Valor da Variável (<code>setVar</code>) / Criar Valor (<code>setVarNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Cria uma nova variável (ou atualiza uma existente) com um nome específico e armazena um valor nela. Variáveis podem guardar números, texto, valores lógicos (verdadeiro/falso) ou tabelas.</p>
-                    <p><strong>Modo Normal:</strong> <code>setVar</code></p>
-                    <p><strong>Modo Simplificado:</strong> <code>setVarNoob</code></p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome da variável</code> / <code>Nome do valor</code>: O identificador único para esta variável.</li>
-                        <li><code>Valor</code>: O dado que será armazenado na variável. Pode ser um número (ex: <code>100</code>), texto (ex: <code>"Olá Jogador"</code>), ou o resultado de uma expressão.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>No evento <code>Ao Iniciar</code>, criar uma variável <code>pontuacao</code> com valor <code>0</code>.</li>
-                        <li>Armazenar o nome do jogador digitado em um campo de texto.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Extremamente importante. Variáveis são a base para qualquer lógica dinâmica e para guardar o estado do jogo.</p>
+    <main class="container animate-fade-in">
+        <section class="content-section">
+            <h2>Blocos de Dados e Texto</h2>
+            <p>Aprenda como manipular dados e texto em seus jogos usando o CCode.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Variáveis</h3>
+                    <p>Criação e manipulação de variáveis.</p>
                 </div>
-
-                <div class="block-description">
-                    <h4>Adicionar Valor à Variável (<code>updVar</code>) / Adicionar Valor (<code>updVarNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Modifica uma variável numérica existente, somando (ou subtraindo, se o valor for negativo) um novo valor ao seu conteúdo atual.</p>
-                    <p><strong>Modo Normal:</strong> <code>updVar</code></p>
-                    <p><strong>Modo Simplificado:</strong> <code>updVarNoob</code></p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome da variável</code> / <code>Nome do valor</code>: O nome da variável numérica a ser modificada.</li>
-                        <li><code>Valor</code>: O número a ser adicionado (ou subtraído) ao valor atual da variável.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Quando o jogador coleta uma moeda: Adicionar <code>10</code> à variável <code>pontuacao</code>.</li>
-                        <li>Quando o jogador perde uma vida: Adicionar <code>-1</code> à variável <code>vidas</code>.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Muito útil para contadores, sistemas de pontuação, gerenciamento de vidas, etc.</p>
+                <div class="card">
+                    <h3>Operações com Texto</h3>
+                    <p>Manipulação e formatação de strings.</p>
                 </div>
-
-                <div class="block-description">
-                    <h4>Criar Texto (<code>newText</code>)</h4>
-                    <p><strong>O que faz:</strong> Exibe um texto na tela do jogo. Este bloco é geralmente encontrado no Modo Normal, pois o Modo Simplificado pode ter formas mais diretas de adicionar texto via objetos de imagem que já contêm texto.</p>
-                    <p><strong>Modo Normal:</strong> <code>newText</code></p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome do texto</code>: Um nome único para identificar este elemento de texto.</li>
-                        <li><code>Texto</code>: O conteúdo textual a ser exibido (ex: "Pontuação: ").</li>
-                        <li><code>Fonte</code>: O nome da fonte a ser usada (deve estar nos recursos do projeto).</li>
-                        <li><code>Tamanho</code>: O tamanho da fonte em pixels.</li>
-                        <li><code>Cor</code>: A cor do texto.</li>
-                        <li><code>Opacidade (0-100)</code>: (Opcional) Nível de transparência do texto.</li>
-                        <li><code>Posição (X)</code>: Coordenada X onde o texto será posicionado.</li>
-                        <li><code>Posição (Y)</code>: Coordenada Y onde o texto será posicionado.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Mostrar a pontuação atual na tela: "Pontuação: " + variável `pontuacao`.</li>
-                        <li>Exibir diálogos de personagens.</li>
-                        <li>Apresentar instruções ou mensagens para o jogador.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Essencial para qualquer interface de usuário (UI), feedback ao jogador e narrativa textual.</p>
+                <div class="card">
+                    <h3>Armazenamento</h3>
+                    <p>Como salvar e carregar dados.</p>
                 </div>
+            </div>
+        </section>
 
-                <div class="block-description">
-                    <h4>Alterar Texto (<code>setText</code>)</h4>
-                    <p><strong>O que faz:</strong> Modifica o conteúdo de um elemento de texto que já foi criado e está visível na tela.</p>
-                    <p><strong>Modo Normal:</strong> <code>setText</code></p>
-                    <p><strong>Parâmetros Principais:</strong></p>
-                    <ul>
-                        <li><code>Nome do texto</code>: O nome do elemento de texto a ser alterado (definido com `Criar Texto`).</li>
-                        <li><code>Texto</code>: O novo conteúdo textual a ser exibido.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Após a variável <code>pontuacao</code> ser atualizada, usar este bloco para exibir o novo valor no elemento de texto da pontuação.</li>
-                        <li>Mudar a mensagem na tela com base no progresso do jogo.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Permite que as informações textuais na tela sejam dinâmicas e reflitam o estado atual do jogo.</p>
-                </div>
+        <section class="content-section">
+            <h3>Navegação Rápida</h3>
+            <nav class="card-grid">
+                <a href="control.html" class="card">
+                    <h3>Blocos de Controle</h3>
+                    <p>Estruturas de controle</p>
+                </a>
+                <a href="events.html" class="card">
+                    <h3>Blocos de Eventos</h3>
+                    <p>Gerenciamento de eventos</p>
+                </a>
+                <a href="media.html" class="card">
+                    <h3>Blocos de Mídia</h3>
+                    <p>Manipulação de áudio e vídeo</p>
+                </a>
+            </nav>
+        </section>
+    </main>
 
-                <div class="block-description">
-                    <h4>Salvar Valor (<code>saveValue</code> / <code>saveValueNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Salva o valor de uma variável de forma persistente no dispositivo do usuário. Isso permite que o valor seja recuperado mesmo após o jogo ser fechado e reaberto.</p>
-                    <p><strong>Modo Normal:</strong> <code>saveValue</code> (geralmente usa uma 'Chave' para identificar o dado salvo)</p>
-                    <p><strong>Modo Simplificado:</strong> <code>saveValueNoob</code> (pode usar o próprio 'Nome do valor' como chave)</p>
-                    <p><strong>Parâmetros Principais (Normal):</strong></p>
-                    <ul>
-                        <li><code>Chave 'K'</code>: Um nome único (string) para identificar o dado salvo.</li>
-                        <li><code>Valor</code>: A variável ou valor a ser salvo.</li>
-                    </ul>
-                    <p><strong>Parâmetros Principais (Simplificado):</strong></p>
-                    <ul>
-                        <li><code>Nome do valor</code>: A variável cujo conteúdo será salvo.</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>Salvar a maior pontuação (highscore).</li>
-                        <li>Salvar o progresso do jogador (nível atual, itens coletados).</li>
-                        <li>Salvar configurações do usuário (volume da música, preferências de controle).</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Crucial para jogos com progressão, recordes ou configurações personalizáveis.</p>
-                </div>
-
-                <div class="block-description">
-                    <h4>Ler Valor Salvo (<code>editor.list.fun.read_save</code> / <code>readValueNoob</code>)</h4>
-                    <p><strong>O que faz:</strong> Recupera um valor que foi previamente salvo no dispositivo do usuário usando o bloco "Salvar Valor".</p>
-                    <p><strong>Modo Normal:</strong> Usado no Editor de Expressões como `ler_salvo("chave_K")`.</p>
-                    <p><strong>Modo Simplificado:</strong> <code>readValueNoob</code></p>
-                    <p><strong>Parâmetros Principais (Normal - Editor de Expressões):</strong></p>
-                    <ul>
-                        <li><code>"chave_K"</code>: A mesma chave usada para salvar o valor.</li>
-                    </ul>
-                    <p><strong>Parâmetros Principais (Simplificado):</strong></p>
-                    <ul>
-                        <li><code>Nome do valor</code>: A variável onde o valor lido será armazenado (e também a chave implícita usada para buscar o dado salvo).</li>
-                    </ul>
-                    <p><strong>Exemplo de Uso:</strong></p>
-                    <ul>
-                        <li>No evento <code>Ao Iniciar</code>, ler o highscore salvo e exibi-lo na tela.</li>
-                        <li>Carregar o último nível salvo quando o jogador continuar o jogo.</li>
-                    </ul>
-                    <p><strong>Relevância:</strong> Complementar ao "Salvar Valor", permitindo a persistência de dados entre sessões de jogo.</p>
-                    <p><strong>Nota:</strong> Se nenhum valor for encontrado para a chave especificada, o bloco geralmente retorna um valor padrão (como `nulo` ou `0`), que você pode precisar tratar na sua lógica.</p>
-                </div>
-
-                 <!-- Adicionar mais blocos relevantes como:
-                 - Criar Tabela (addTable)
-                 - Inserir Valor no Array (insertTable)
-                 - ... e outros da categoria 'vars' e 'editor.fun' que manipulam dados e texto -->
-
-            </section>
-        </main>
-    </div>
-     <footer>
+    <footer>
         <div class="container">
-            <p>&copy; 2023 CCode FanWiki. Todos os direitos reservados.</p>
+            <p>&copy; 2025 CCode Wiki. Todos os direitos reservados.</p>
+            <nav>
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+                <a href="#">GitHub</a>
+            </nav>
         </div>
     </footer>
+
     <script src="../../js/main.js"></script>
 </body>
 </html>
