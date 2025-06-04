@@ -3,86 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Introdução ao CCode - Conheça os conceitos básicos da game engine">
     <title>Introdução ao CCode - CCode Wiki</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/png" href="../icons/icon-192x192.png">
 </head>
-<body class="dark-mode">
+<body>
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="header-left">
                     <a href="../index.html" id="logo">
-                        <img src="../images/logo.png" alt="CCode Logo" style="width: 128px; height: 128px;">
+                        <img src="../images/logo.png" alt="CCode Logo">
                     </a>
-                    <h1><a href="../index.html" style="color:white; text-decoration:none;">CCode Wiki</a></h1>
+                    <h1><a href="../index.html">CCode Wiki</a></h1>
                 </div>
-                <nav id="top-nav">
+                <nav>
                     <a href="../index.html">Home</a>
+                    <a href="getting-started.html">Primeiros Passos</a>
                     <a href="introduction.html" class="active">Introdução</a>
-                    <a href="modes.html">Modos de Uso</a>
+                    <a href="modes.html">Modos</a>
+                    <a href="blocks/control.html">Blocos</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <div class="container main-container">
-        <aside id="sidebar">
-            <h2>Navegação</h2>
-             <input type="text" id="search-bar" placeholder="Buscar na Wiki...">
-            <ul>
-                <li><a href="../index.html">Página Inicial</a></li>
-                <li><a href="introduction.html" class="active">Introdução ao CCode</a></li>
-                <li><a href="modes.html">Modo Normal vs. Simplificado</a></li>
-                <li>
-                    <span class="category-toggle">Categorias de Blocos</span>
-                     <ul class="submenu">
-                        <li><a href="blocks/events.html">Eventos</a></li>
-                        <li><a href="blocks/data-text.html">Dados & Texto</a></li>
-                        <li><a href="blocks/objects-filters.html">Objetos & Filtros / Imagens</a></li>
-                        <li><a href="blocks/control.html">Controle</a></li>
-                        <li><a href="blocks/shapes.html">Formas</a></li>
-                        <li><a href="blocks/physics.html">Física</a></li>
-                        <li><a href="blocks/media.html">Mídia</a></li>
-                        <li><a href="blocks/transitions.html">Transições</a></li>
-                        <li><a href="blocks/editor-expressions.html">Editor de Expressões</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </aside>
+    <main class="container animate-fade-in">
+        <section class="content-section">
+            <h2>Introdução ao CCode</h2>
+            <p>Descubra o que torna o CCode uma ferramenta única para desenvolvimento de jogos.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Visão Geral</h3>
+                    <p>Entenda os conceitos fundamentais do CCode.</p>
+                </div>
+                <div class="card">
+                    <h3>Recursos</h3>
+                    <p>Conheça os principais recursos da engine.</p>
+                </div>
+                <div class="card">
+                    <h3>Interface</h3>
+                    <p>Familiarize-se com a interface do CCode.</p>
+                </div>
+            </div>
+        </section>
 
-        <main id="main-content">
-            <section>
-                <h2>Introdução ao CCode</h2>
-                <p>Bem-vindo ao mundo do CCode! Esta game engine foi projetada para tornar o desenvolvimento de jogos acessível e divertido, utilizando um sistema de programação visual baseado em blocos.</p>
-                <p>Com o CCode, você pode:</p>
-                <ul>
-                    <li>Criar jogos 2D de diversos gêneros.</li>
-                    <li>Desenvolver aplicativos interativos.</li>
-                    <li>Aprender os fundamentos da lógica de programação de uma maneira intuitiva.</li>
-                    <li>Exportar seus projetos para diferentes plataformas (ex: APK para Android).</li>
-                </ul>
-                <p>Esta Wiki serve como um manual completo para você explorar todas as funcionalidades do CCode, desde os blocos mais básicos até os conceitos mais avançados.</p>
-                <h3>Principais Características</h3>
-                <ul>
-                    <li><strong>Programação Visual por Blocos:</strong> Arraste e solte blocos para construir a lógica do seu jogo, sem precisar escrever código complexo.</li>
-                    <li><strong>Modos de Dificuldade:</strong> Um Modo Simplificado (Noob) para iniciantes e um Modo Normal com acesso total às funcionalidades.</li>
-                    <li><strong>Editor de Níveis Integrado:</strong> Crie e gerencie os níveis dos seus jogos diretamente na engine.</li>
-                    <li><strong>Motor de Física:</strong> Adicione comportamentos realistas aos seus objetos com gravidade, colisões e mais.</li>
-                    <li><strong>Suporte a Recursos:</strong> Importe facilmente sprites, sons, fontes e outros assets para seus projetos.</li>
-                </ul>
-                 <p>Pronto para começar? Navegue pelas seções desta Wiki para aprender mais!</p>
-            </section>
-            <section id="exemplo-introducao">
-                <img src="../images/exemplo-introducao.png" alt="Exemplo de Introdução" style="width: 100%; max-width: 300px;">
-            </section>
-        </main>
-    </div>
+        <section class="content-section" id="exemplo-introducao">
+            <img src="../images/exemplo-introducao.png" alt="Exemplo de Introdução" class="animate-fade-in">
+        </section>
+    </main>
+
     <footer>
         <div class="container">
-            <p>© 2023 CCode FanWiki. Todos os direitos reservados.</p>
+            <p>&copy; 2025 CCode Wiki. Todos os direitos reservados.</p>
+            <nav>
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+                <a href="#">GitHub</a>
+            </nav>
         </div>
     </footer>
+
     <script src="../js/main.js"></script>
 </body>
 </html>

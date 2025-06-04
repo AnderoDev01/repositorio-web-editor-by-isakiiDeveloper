@@ -3,108 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore os diferentes modos de uso do CCode">
     <title>Modos de Uso - CCode Wiki</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/png" href="../icons/icon-192x192.png">
 </head>
-<body class="dark-mode">
+<body>
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="header-left">
                     <a href="../index.html" id="logo">
-                        <img src="../images/logo.png" alt="CCode Logo" style="width: 128px; height: 128px;">
+                        <img src="../images/logo.png" alt="CCode Logo">
                     </a>
-                    <h1><a href="../index.html" style="color:white; text-decoration:none;">CCode Wiki</a></h1>
+                    <h1><a href="../index.html">CCode Wiki</a></h1>
                 </div>
-                <nav id="top-nav">
+                <nav>
                     <a href="../index.html">Home</a>
+                    <a href="getting-started.html">Primeiros Passos</a>
                     <a href="introduction.html">Introdução</a>
-                    <a href="modes.html" class="active">Modos de Uso</a>
+                    <a href="modes.html" class="active">Modos</a>
+                    <a href="blocks/control.html">Blocos</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <div class="container main-container">
-        <aside id="sidebar">
-            <h2>Navegação</h2>
-            <input type="text" id="search-bar" placeholder="Buscar na Wiki...">
-            <ul>
-                <li><a href="../index.html">Página Inicial</a></li>
-                <li><a href="introduction.html">Introdução ao CCode</a></li>
-                <li><a href="modes.html" class="active">Modo Normal vs. Simplificado</a></li>
-                <li>
-                    <span class="category-toggle">Categorias de Blocos</span>
-                    <ul class="submenu">
-                        <li><a href="blocks/events.html">Eventos</a></li>
-                        <li><a href="blocks/data-text.html">Dados & Texto</a></li>
-                        <li><a href="blocks/objects-filters.html">Objetos & Filtros / Imagens</a></li>
-                        <li><a href="blocks/control.html">Controle</a></li>
-                        <li><a href="blocks/shapes.html">Formas</a></li>
-                        <li><a href="blocks/physics.html">Física</a></li>
-                        <li><a href="blocks/media.html">Mídia</a></li>
-                        <li><a href="blocks/transitions.html">Transições</a></li>
-                        <li><a href="blocks/editor-expressions.html">Editor de Expressões</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </aside>
-
-        <main id="main-content">
-            <section>
-                <h2>Modo Normal vs. Modo Simplificado (Noob)</h2>
-                <p>O CCode foi projetado para atender tanto a iniciantes quanto a usuários mais experientes. Para isso, ele oferece dois modos principais de interação com os blocos de programação:</p>
-
-                <div class="block-description">
-                    <h4>Modo Normal (Padrão)</h4>
-                    <p><strong>Para quem é:</strong> Usuários que já têm alguma familiaridade com lógica de programação ou desenvolvimento de jogos, ou aqueles que já se sentem confortáveis com o Modo Simplificado e querem explorar mais a fundo.</p>
-                    <p><strong>Características Principais:</strong></p>
-                    <ul>
-                        <li><strong>Acesso Completo:</strong> Desbloqueia todos os blocos e funcionalidades disponíveis na engine CCode. Isso inclui física avançada (juntas, hitboxes detalhadas), filtros gráficos (shaders), manipulação complexa de arquivos, funcionalidades de rede, animações de partículas, e muito mais.</li>
-                        <li><strong>Nomenclatura Técnica:</strong> Os blocos e seus parâmetros tendem a usar termos mais técnicos e precisos, comuns em outras engines e linguagens de programação (ex: "Criar Variável Global", "Definir Corpo Físico Rígido", "Aplicar Shader de Fragmento").</li>
-                        <li><strong>Controle Granular:</strong> Muitos blocos oferecem um número maior de parâmetros, permitindo um ajuste fino sobre cada aspecto do comportamento ou aparência dos elementos.</li>
-                        <li><strong>Maior Flexibilidade:</strong> Permite a criação de mecânicas de jogo mais complexas e sistemas personalizados.</li>
-                    </ul>
-                    <p><strong>Quando usar:</strong> Quando você precisa de funcionalidades específicas não disponíveis no Modo Simplificado, quer otimizar seu jogo com controle detalhado, ou está pronto para mergulhar em conceitos mais avançados de desenvolvimento.</p>
+    <main class="container animate-fade-in">
+        <section class="content-section">
+            <h2>Modos de Uso do CCode</h2>
+            <p>Conheça os diferentes modos de desenvolvimento disponíveis no CCode.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Modo Visual</h3>
+                    <p>Desenvolvimento usando blocos visuais.</p>
                 </div>
-
-                <div class="block-description">
-                    <h4>Modo Simplificado (Noob)</h4>
-                    <p><strong>Para quem é:</strong> Iniciantes absolutos em programação, crianças, educadores que estão introduzindo conceitos de lógica, ou qualquer pessoa que prefira uma curva de aprendizado mais suave e uma interface menos intimidadora.</p>
-                    <p><strong>Características Principais:</strong></p>
-                    <ul>
-                        <li><strong>Interface Amigável:</strong> Apresenta um conjunto reduzido de blocos, focando nas funcionalidades mais essenciais e fáceis de entender para criar jogos simples.</li>
-                        <li><strong>Nomenclatura Intuitiva:</strong> Os blocos e parâmetros usam linguagem mais simples e direta (ex: "Criar Valor", "Tornar Imagem Física", "Mover Imagem"). Categorias como "Objetos" podem ser chamadas de "Imagens" para facilitar a associação.</li>
-                        <li><strong>Menos Parâmetros:</strong> Os blocos geralmente possuem menos opções de configuração, focando no resultado principal e abstraindo detalhes mais complexos.</li>
-                        <li><strong>Curva de Aprendizado Rápida:</strong> Permite que novos usuários comecem a criar e ver resultados rapidamente, incentivando a exploração e o aprendizado progressivo.</li>
-                        <li><strong>Foco no Essencial:</strong> Ideal para aprender os conceitos fundamentais de eventos, movimento, colisões básicas e lógica de jogo.</li>
-                    </ul>
-                    <p><strong>Quando usar:</strong> Ao começar a usar o CCode pela primeira vez, para ensinar os fundamentos da criação de jogos, ou para prototipar ideias rapidamente sem se preocupar com detalhes avançados.</p>
+                <div class="card">
+                    <h3>Modo Código</h3>
+                    <p>Programação direta usando código.</p>
                 </div>
+                <div class="card">
+                    <h3>Modo Híbrido</h3>
+                    <p>Combine blocos visuais com código.</p>
+                </div>
+            </div>
+        </section>
 
-                <h3>Como Alternar entre os Modos?</h3>
-                <p>A forma de alternar entre os modos pode variar dependendo da versão do CCode. Geralmente, essa opção pode ser encontrada nas configurações do projeto ou em uma opção visível na interface principal do editor de blocos. Consulte a interface do seu CCode para localizar essa funcionalidade.</p>
+        <section class="content-section" id="exemplo-modos">
+            <img src="../images/exemplo-modos.png" alt="Exemplo de Modos" class="animate-fade-in">
+        </section>
+    </main>
 
-                <h3>Recomendação</h3>
-                <p>Não há um modo "melhor" que o outro; eles servem a propósitos diferentes.</p>
-                <ul>
-                    <li><strong>Comece pelo Modo Simplificado</strong> se você é novo no CCode ou na programação em geral. Construa alguns projetos pequenos para se familiarizar com os conceitos básicos.</li>
-                    <li><strong>Transite para o Modo Normal</strong> quando sentir que o Modo Simplificado está limitando suas ideias ou quando você estiver pronto para explorar funcionalidades mais poderosas e ter um controle mais preciso sobre seus jogos.</li>
-                </ul>
-                <p>Ambos os modos utilizam a mesma lógica fundamental de programação por blocos, então o conhecimento adquirido em um modo é diretamente aplicável ao outro.</p>
-            </section>
-
-            <section id="exemplo-modos">
-                <img src="../images/exemplo-modos.png" alt="Exemplo de Modos" style="width: 100%; max-width: 300px;">
-            </section>
-        </main>
-    </div>
     <footer>
         <div class="container">
-            <p>© 2023 CCode FanWiki. Todos os direitos reservados.</p>
+            <p>&copy; 2025 CCode Wiki. Todos os direitos reservados.</p>
+            <nav>
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+                <a href="#">GitHub</a>
+            </nav>
         </div>
     </footer>
+
     <script src="../js/main.js"></script>
 </body>
 </html>

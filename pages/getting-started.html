@@ -7,108 +7,63 @@
     <title>Primeiros Passos - CCode Wiki</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/png" href="../icons/icon-192x192.png">
 </head>
-<body class="dark-mode">
+<body>
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="header-left">
                     <a href="../index.html" id="logo">
-                        <img src="../images/logo.png" alt="CCode Logo" style="width: 128px; height: 128px;">
+                        <img src="../images/logo.png" alt="CCode Logo">
                     </a>
-                    <h1><a href="../index.html" style="color:white; text-decoration:none;">CCode Wiki</a></h1>
+                    <h1><a href="../index.html">CCode Wiki</a></h1>
                 </div>
-                <nav id="top-nav">
+                <nav>
                     <a href="../index.html">Home</a>
-                    <a href="introduction.html">Introdução</a>
                     <a href="getting-started.html" class="active">Primeiros Passos</a>
-                    <a href="modes.html">Modos de Uso</a>
+                    <a href="introduction.html">Introdução</a>
+                    <a href="modes.html">Modos</a>
+                    <a href="blocks/control.html">Blocos</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <div class="container main-container">
-        <aside id="sidebar">
-            <h2>Navegação</h2>
-            <input type="text" id="search-bar" placeholder="Buscar na Wiki...">
-            <nav>
-                <ul>
-                    <li><a href="../index.html">Página Inicial</a></li>
-                    <li><a href="introduction.html">Introdução ao CCode</a></li>
-                    <li><a href="getting-started.html" class="active">Primeiros Passos</a></li>
-                    <li><a href="modes.html">Modos de Uso</a></li>
-                    <li>
-                        <span class="category-toggle">Categorias de Blocos</span>
-                        <ul class="submenu">
-                            <li><a href="blocks/events.html">Eventos</a></li>
-                            <li><a href="blocks/data-text.html">Dados & Texto</a></li>
-                            <li><a href="blocks/objects-filters.html">Objetos & Filtros</a></li>
-                            <li><a href="blocks/control.html">Controle</a></li>
-                            <li><a href="blocks/shapes.html">Formas</a></li>
-                            <li><a href="blocks/physics.html">Física</a></li>
-                            <li><a href="blocks/media.html">Mídia</a></li>
-                            <li><a href="blocks/transitions.html">Transições</a></li>
-                            <li><a href="blocks/editor-expressions.html">Editor de Expressões</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
-
-        <main id="main-content" class="fade-in">
-            <section class="getting-started">
-                <h2>🚀 Primeiros Passos com CCode</h2>
-                
-                <div class="quick-start card">
-                    <h3>📝 Pré-requisitos</h3>
-                    <ul>
-                        <li>Navegador web moderno</li>
-                        <li>Conhecimentos básicos de lógica de programação (opcional)</li>
-                    </ul>
+    <main class="container animate-fade-in">
+        <section class="content-section">
+            <h2>Primeiros Passos com o CCode</h2>
+            <p>Aprenda como começar a desenvolver seus jogos usando o CCode.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Instalação</h3>
+                    <p>Como instalar e configurar o CCode em seu computador.</p>
                 </div>
-
-                <div class="tutorial-steps">
-                    <h3>🎯 Começando seu Primeiro Projeto</h3>
-                    
-                    <div class="step card">
-                        <h4>Passo 1: Configuração Inicial</h4>
-                        <p>Aprenda como acessar e configurar o ambiente CCode para começar seu primeiro projeto.</p>
-                        <!-- Será adicionado conteúdo detalhado e screenshots -->
-                    </div>
-
-                    <div class="step card">
-                        <h4>Passo 2: Entendendo a Interface</h4>
-                        <p>Explore os principais elementos da interface do CCode e como navegar entre eles.</p>
-                        <!-- Será adicionado conteúdo detalhado e screenshots -->
-                    </div>
-
-                    <div class="step card">
-                        <h4>Passo 3: Seu Primeiro Jogo</h4>
-                        <p>Siga este tutorial para criar um jogo simples e entender os conceitos básicos.</p>
-                        <!-- Será adicionado conteúdo detalhado e screenshots -->
-                    </div>
+                <div class="card">
+                    <h3>Configuração</h3>
+                    <p>Configure seu ambiente de desenvolvimento.</p>
                 </div>
-
-                <div class="next-steps card">
-                    <h3>👣 Próximos Passos</h3>
-                    <ul>
-                        <li><a href="modes.html">Explorar os diferentes modos de uso</a></li>
-                        <li><a href="blocks/events.html">Aprender sobre eventos básicos</a></li>
-                        <li><a href="blocks/objects-filters.html">Trabalhar com objetos e sprites</a></li>
-                    </ul>
+                <div class="card">
+                    <h3>Primeiro Projeto</h3>
+                    <p>Crie seu primeiro projeto no CCode.</p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="exemplo-tutorial">
-                <img src="../images/exemplo-tutorial.png" alt="Exemplo de Tutorial" style="width: 100%; max-width: 300px;">
-            </section>
-        </main>
-    </div>
+        <section class="content-section" id="exemplo-tutorial">
+            <img src="../images/exemplo-tutorial.png" alt="Exemplo de Tutorial" class="animate-fade-in">
+        </section>
+    </main>
 
     <footer>
         <div class="container">
-            <p>Uma documentação fan-made com ❤️ por isakiiDeveloper</p>
+            <p>&copy; 2025 CCode Wiki. Todos os direitos reservados.</p>
+            <nav>
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+                <a href="#">GitHub</a>
+            </nav>
         </div>
     </footer>
 

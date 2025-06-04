@@ -3,84 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CCode Wiki - O guia definitivo para a game engine CCode">
     <title>CCode Wiki - O Guia Definitivo</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#4A90E2">
-    <!-- Adicione seus ícones para Apple Touch aqui, se desejar -->
+    <link rel="icon" type="image/png" href="icons/icon-192x192.png">
 </head>
-<body class="dark-mode">
+<body>
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="header-left">
                     <a href="index.html" id="logo">
-                        <img src="images/logo.png" alt="CCode Logo" style="width: 128px; height: 128px;">
+                        <img src="images/logo.png" alt="CCode Logo">
                     </a>
-                    <h1><a href="index.html" style="color:white; text-decoration:none;">CCode Wiki</a></h1>
+                    <h1><a href="index.html">CCode Wiki</a></h1>
                 </div>
-                <nav id="top-nav">
+                <nav>
                     <a href="index.html" class="active">Home</a>
+                    <a href="pages/getting-started.html">Primeiros Passos</a>
                     <a href="pages/introduction.html">Introdução</a>
-                    <a href="pages/modes.html">Modos de Uso</a>
+                    <a href="pages/modes.html">Modos</a>
+                    <a href="pages/blocks/control.html">Blocos</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <div class="container main-container">
-        <aside id="sidebar">
-            <h2>Navegação</h2>
-            <input type="text" id="search-bar" placeholder="Buscar na Wiki...">
-            <ul>
-                <li><a href="index.html">Página Inicial</a></li>
-                <li><a href="pages/introduction.html">Introdução ao CCode</a></li>
-                <li><a href="pages/modes.html">Modo Normal vs. Simplificado</a></li>
-                <li>
-                    <span class="category-toggle">Categorias de Blocos</span>
-                    <ul class="submenu">
-                        <li><a href="pages/blocks/events.html">Eventos</a></li>
-                        <li><a href="pages/blocks/data-text.html">Dados & Texto</a></li>
-                        <li><a href="pages/blocks/objects-filters.html">Objetos & Filtros / Imagens</a></li>
-                        <li><a href="pages/blocks/control.html">Controle</a></li>
-                        <li><a href="pages/blocks/shapes.html">Formas</a></li>
-                        <li><a href="pages/blocks/physics.html">Física</a></li>
-                        <li><a href="pages/blocks/media.html">Mídia</a></li>
-                        <li><a href="pages/blocks/transitions.html">Transições</a></li>
-                        <li><a href="pages/blocks/editor-expressions.html">Editor de Expressões</a></li>
-                    </ul>
-                </li>
-                <!-- Adicionar mais links conforme necessário -->
-            </ul>
-        </aside>
+    <main class="container animate-fade-in">
+        <section class="content-section">
+            <h2>Bem-vindo ao CCode Wiki</h2>
+            <p>Seu guia completo para dominar a game engine CCode e criar jogos incríveis.</p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Primeiros Passos</h3>
+                    <p>Comece sua jornada com o CCode aqui.</p>
+                    <a href="pages/getting-started.html" class="btn">Começar</a>
+                </div>
+                <div class="card">
+                    <h3>Documentação</h3>
+                    <p>Explore nossa documentação detalhada.</p>
+                    <a href="pages/introduction.html" class="btn">Explorar</a>
+                </div>
+                <div class="card">
+                    <h3>Exemplos</h3>
+                    <p>Veja exemplos práticos de uso.</p>
+                    <a href="pages/block-examples/example-block.html" class="btn">Ver Exemplos</a>
+                </div>
+            </div>
+        </section>
 
-        <main id="main-content">
-            <section>
-                <h2>Bem-vindo à Wiki do CCode!</h2>
-                <p>Este é o seu guia central para aprender tudo sobre a game engine CCode. Explore os blocos, entenda os diferentes modos de uso e comece a criar seus próprios jogos e aplicativos incríveis!</p>
-                <p>Use a navegação à esquerda para encontrar informações específicas ou comece pela <a href="pages/introduction.html">Introdução ao CCode</a>.</p>
-            </section>
-
-            <section id="quick-links">
-                <h3>Links Rápidos</h3>
-                <ul>
-                    <li><a href="pages/modes.html">Entendendo os Modos (Normal vs. Simplificado)</a></li>
-                    <li><a href="pages/blocks/events.html">Blocos de Eventos</a></li>
-                    <li><a href="pages/blocks/objects-filters.html">Trabalhando com Objetos/Imagens</a></li>
-                    <li><a href="pages/blocks/physics.html">Introdução à Física</a></li>
-                </ul>
-            </section>
-
-            <section id="exemplo-logo">
-                <img src="images/exemplo-logo.png" alt="Exemplo de Logo" style="width: 100%; max-width: 300px;">
-            </section>
-        </main>
-    </div>
+        <section class="content-section" id="exemplo-logo">
+            <img src="images/exemplo-logo.png" alt="Exemplo de Logo" class="animate-fade-in">
+        </section>
+    </main>
 
     <footer>
         <div class="container">
-            <p>© 2023 Seu Nome/Nome do Projeto CCode. Todos os direitos reservados.</p>
-            <p><button id="install-button" style="display: none;">Instalar Wiki Offline</button></p>
+            <p>&copy; 2025 CCode Wiki. Todos os direitos reservados.</p>
+            <nav>
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+                <a href="#">GitHub</a>
+            </nav>
         </div>
     </footer>
 
